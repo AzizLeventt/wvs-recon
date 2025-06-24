@@ -1,82 +1,124 @@
 import json
 import os
-import webbrowser
+from pathlib import Path
+from utils.logger import success, error
 
-def generate_html_report(json_path, output_html_path="output/report.html"):
-    if not os.path.exists(json_path):
-        print(f"[!] JSON dosyası bulunamadı: {json_path}")
-        return
 
-    with open(json_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
+def generate_html_report(json_file: str) -> str:
+    """Verilen JSON rapor dosyasını okuyup AYNI klasöre, **JSON dosya adıyla
+    aynı stem'e** (uzantısız ada) sahip bir HTML raporu üretir ve yolunu döndürür.
 
-    domain = data.get("domain", "Bilinmiyor")
-    subdomains = data.get("subdomains", [])
-    open_ports = data.get("open_ports", [])
-    found_dirs = data.get("found_dirs", [])
-    vuln_endpoints = data.get("vuln_endpoints", [])
-    xss_results = data.get("xss_results", [])  # ✅ Doğru anahtar adı
-
-    html = f"""
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>WVS-Recon Rapor - {domain}</title>
-        <style>
-            body {{ font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }}
-            h1 {{ color: #2c3e50; }}
-            h2 {{ color: #34495e; }}
-            ul {{ background: #fff; padding: 15px 25px; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }}
-            li {{ margin: 8px 0; font-size: 16px; }}
-            .section {{ margin-bottom: 30px; }}
-        </style>
-    </head>
-    <body>
-        <h1>🛡️ WVS-Recon Raporu - {domain}</h1>
-
-        <div class="section">
-            <h2>🌐 Subdomain'ler</h2>
-            <ul>
-                {''.join(f"<li>{s}</li>" for s in subdomains) or "<li>Bulunamadı</li>"}
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>🚪 Açık Portlar</h2>
-            <ul>
-                {''.join(f"<li>{p}</li>" for p in open_ports) or "<li>Bulunamadı</li>"}
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>📁 Dizinler</h2>
-            <ul>
-                {''.join(f"<li>{d}</li>" for d in found_dirs) or "<li>Bulunamadı</li>"}
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>⚠️ Zafiyetli Endpoint'ler</h2>
-            <ul>
-                {''.join(f"<li style='color:red;'>{v}</li>" for v in vuln_endpoints) or "<li>Bulunamadı</li>"}
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>🧪 XSS Açıkları</h2>
-            <ul>
-                {''.join(f"<li style='color:orange;'>{x}</li>" for x in xss_results) or "<li>Bulunamadı</li>"}
-            </ul>
-        </div>
-    </body>
-    </html>
+    Örnek:
+        output/example_com_report.json ➜ output/example_com_report.html
     """
+    try:
+        with open(json_file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception as exc:
+        error(f"JSON raporu okunamadı: {exc}")
+        raise
 
-    os.makedirs(os.path.dirname(output_html_path), exist_ok=True)
-    with open(output_html_path, "w", encoding="utf-8") as f:
-        f.write(html)
+    # Hedefe özgü dosya adı oluştur
+    html_file = os.path.join(
+        os.path.dirname(json_file),
+        f"{Path(json_file).stem}.html",
+    )
 
-    full_path = os.path.abspath(output_html_path).replace(os.sep, "/")
-    url = f"file:///{full_path}"
-    print(f"[+] HTML raporu oluşturuldu: {url}")
-    webbrowser.open(url)
+    # ---- HTML İçerik ----
+    domain = data.get("domain", "")
+    html = [
+        "<!DOCTYPE html>",
+        "<html lang=\"tr\">",
+        "<head>",
+        f"    <meta charset='UTF-8'>",
+        f"    <title>WVS-Recon Raporu - {domain}</title>",
+        "    <style>",
+        "        body { font-family: Arial, sans-serif; padding: 20px; }",
+        "        h1 { color: #4a148c; }",
+        "        h2 { color: #6a1b9a; }",
+        "        ul { list-style-type: none; padding-left: 0; }",
+        "        li { margin-bottom: 5px; }",
+        "        .code { font-family: monospace; background: #f0f0f0; padding: 3px 6px; border-radius: 4px; }",
+        "    </style>",
+        "</head>",
+        "<body>",
+        "    <h1>WVS-Recon Raporu</h1>",
+        f"    <p><strong>Hedef:</strong> {domain}</p>",
+    ]
+
+    # Yardımcı şablon fonksiyonu
+    def add_list_section(title: str, items):
+        if items:
+            html.extend([f"    <h2>{title}</h2>", "    <ul>"])
+            for item in items:
+                if isinstance(item, tuple):
+                    # (url, code) şeklindeki veriler
+                    url, code = item
+                    html.append(f"        <li>{url} <span class='code'>({code})</span></li>")
+                else:
+                    html.append(f"        <li>{item}</li>")
+            html.extend(["    </ul>"])
+
+    add_list_section("Subdomain'ler", data.get("subdomains", []))
+    add_list_section("Açık Portlar", data.get("open_ports", []))
+    add_list_section("Açık Dizinler", data.get("found_dirs", []))
+    add_list_section("Zafiyet Endpoint'leri", data.get("vuln_endpoints", []))
+    add_list_section("XSS Açıkları", data.get("xss_results", []))
+
+    # Formlar
+    if data.get("form_data"):
+        html.extend(["    <h2>Formlar</h2>", "    <ul>"])
+        for form in data["form_data"]:
+            html.append("        <li>")
+            html.append(f"            <b>Yöntem:</b> {form.get('method', '').upper()}<br>")
+            html.append(f"            <b>Action:</b> {form.get('action', '')}<br>")
+            inputs = form.get("inputs", {})
+            html.append("            <b>Inputlar:</b><ul>")
+            if isinstance(inputs, dict):
+                for name, typ in inputs.items():
+                    html.append(f"                <li>{name} ({typ})</li>")
+            elif isinstance(inputs, list):
+                for inp in inputs:
+                    if isinstance(inp, dict):
+                        html.append(f"                <li>{inp.get('name', 'unknown')} ({inp.get('type', 'text')})</li>")
+            html.append("            </ul><br>")
+            html.append("        </li>")
+        html.extend(["    </ul>"])
+
+    # Form test sonuçları
+    if data.get("form_test_results"):
+        html.extend(["    <h2>Form Test Sonuçları</h2>", "    <ul>"])
+        for form in data["form_test_results"]:
+            html.append("        <li>")
+            html.append(f"            <b>Yöntem:</b> {form.get('method', '').upper()}<br>")
+            html.append(f"            <b>Action:</b> {form.get('action', '')}<br>")
+            inputs = form.get("inputs", {})
+            html.append("            <b>Inputlar:</b><ul>")
+            if isinstance(inputs, dict):
+                for name, typ in inputs.items():
+                    html.append(f"                <li>{name} ({typ})</li>")
+            elif isinstance(inputs, list):
+                for inp in inputs:
+                    if isinstance(inp, dict):
+                        name = inp.get("name", "unknown")
+                        typ = inp.get("type", "unknown")
+                        html.append(f"                <li>{name} ({typ})</li>")
+            html.append("            </ul>")
+            if form.get("vulnerable"):
+                html.append("            <b style='color:red;'>⚠️ Potansiyel açık tespit edildi!</b><br>")
+            else:
+                html.append("            <b style='color:green;'>Güvenli</b><br>")
+            html.append("        </li>")
+        html.extend(["    </ul>"])
+
+    html.extend(["</body>", "</html>"])
+
+    # Dosyayı kaydet
+    try:
+        with open(html_file, "w", encoding="utf-8") as f:
+            f.write("\n".join(html))
+        success(f"HTML raporu oluşturuldu: file://{os.path.abspath(html_file)}")
+        return html_file
+    except Exception as exc:
+        error(f"HTML raporu kaydedilemedi: {exc}")
+        raise

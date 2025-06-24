@@ -1,32 +1,98 @@
 import argparse
+import os
 import socket
-import sys
 from datetime import datetime
+from pathlib import Path
+
+from colorama import Fore, Style
+
 from modules.subdomain_enum import get_subdomains_crtsh
 from modules.port_scan import run_port_scan
 from modules.dir_enum import dir_enum
 from modules.vuln_checker import check_vuln_endpoints
 from modules.xss_scanner import scan_xss
+from modules.form_scanner import scan_forms
+from modules.form_tester import test_forms
+
+from utils.input_analyzer import analyze_input  # param ayrımı & payload seçimi
 from utils.logger import info, success, error
 from utils.file_writer import write_json_report
 from utils.html_report import generate_html_report
-from colorama import Fore, Style
-import os
 
-def scan_target(target, args):
-    target = target.replace("https://", "").replace("http://", "").strip("/")
-    start_time = datetime.now()
-    info(f"Hedef alındı: {target}")
+############################################################
+# 1. Yardımcı işler
+############################################################
 
+def _print_dirs(results):
+    for url, code in results:
+        color = (
+            Fore.GREEN if code == 200 else
+            Fore.YELLOW if code in (301, 302) else
+            Fore.MAGENTA
+        )
+        print(f"{color}- {url} ({code}){Style.RESET_ALL}")
+
+
+def _scan_and_test_forms(target_url: str, verbose: bool):
+    """Forms ➜ input ayrımı ➜ payload seçimi ➜ test gönderimi zinciri"""
+    info(f"{target_url} için form taraması başlatılıyor...")
+    forms = scan_forms(target_url)
+
+    if not forms:
+        info("Hiç form bulunamadı.")
+        return [], []
+
+    success(f"{len(forms)} form bulundu.")
+
+    # Verileri, payload seçimiyle birlikte CLI'da göstermek için
+    for idx, form in enumerate(forms, 1):
+        print(f"\n  [{idx}] {form['method'].upper()} -> {form['action']}")
+        for inp in form.get("inputs", []):
+            name = inp.get("name", "unknown")
+            itype = inp.get("type", "text")
+            print(f"     - {name} ({itype})")
+            if verbose:
+                payloads = analyze_input(itype, name).get("payloads", [])[:2]
+                print(f"       örnek payloadlar: {payloads}")
+
+    # Ardından otomatik payload gönderimi & test
+    test_results = test_forms(forms, target_url)
+    for idx, res in enumerate(test_results, 1):
+        if res.get("vulnerable"):
+            print(f"{Fore.RED}     ⚠️ Form {idx}: Potansiyel açık tespit edildi!{Style.RESET_ALL}")
+        elif verbose:
+            print(f"     Form {idx}: sorun bulunamadı.")
+
+    return forms, test_results
+
+############################################################
+# 2. Ana hedef tarama
+############################################################
+
+def scan_target(domain: str, args: argparse.Namespace):
+    """Bir domain (veya subdomain) için modüler tarama akışı"""
+
+    # 2.1 Temel temizlik & başlangıç
+    domain = domain.replace("https://", "").replace("http://", "").strip("/")
+    target_url = f"http://{domain}"
+    start_ts = datetime.now()
+    info(f"Hedef alındı: {domain}")
+
+    # Çıktıları depolayacak yapılar
     subdomains = []
     open_ports = []
     found_dirs = []
-    vuln_results = []
+    vuln_endpoints = []
     xss_results = []
+    form_data = []
+    form_test_results = []
 
     try:
+        ####################################################
+        # 2.2 Subdomain Enum
+        ####################################################
         if args.subdomain:
-            subdomains = get_subdomains_crtsh(target)
+            subdomains = get_subdomains_crtsh(domain)
             if subdomains:
                 success(f"{len(subdomains)} subdomain bulundu:")
                 for s in subdomains:
@@ -34,123 +100,162 @@ def scan_target(target, args):
             else:
                 info("Hiç subdomain bulunamadı.")
 
-        if args.ports or args.dirs or args.vuln or args.xss:
+        ####################################################
+        # 2.3 IP çözümleme (diğer taramalar öncesi tek noktada)
+        ####################################################
+        if any([args.ports, args.dirs, args.vuln, args.xss, args.form, args.formtest]):
             try:
-                ip = socket.gethostbyname(target)
-                info(f"{target} domaininin IP adresi: {ip}")
-            except Exception as e:
-                error(f"IP adresi alınamadı: {e}")
+                ip = socket.gethostbyname(domain)
+                info(f"{domain} IP → {ip}")
+            except Exception as exc:
+                error(f"IP adresi alınamadı: {exc}")
                 return
+        else:
+            ip = None  # kullanılmayacak
 
-        if args.ports:
-            info(f"{ip} için port taraması başlatılıyor...")
+        ####################################################
+        # 2.4 Port Scan
+        ####################################################
+        if args.ports and ip:
+            info("Port taraması başlatılıyor…")
             open_ports = run_port_scan(ip)
             if open_ports:
                 success(f"Açık portlar: {open_ports}")
             else:
-                info("Açık port bulunamadı.")
+                info("Açık port yok.")
 
+        ####################################################
+        # 2.5 Directory Enum
+        ####################################################
         if args.dirs:
+            wlist = (
+                args.wordlist if args.wordlist and os.path.isfile(args.wordlist)
+                else ("wordlists/quick.txt" if args.fast else "wordlists/common.txt")
+            )
             try:
-                wordlist_path = "wordlists/quick.txt" if args.fast else "wordlists/common.txt"
-                with open(wordlist_path, "r", encoding="utf-8") as f:
-                    words = f.read().splitlines()
+                with open(wlist, "r", encoding="utf-8") as fh:
+                    words = fh.read().splitlines()
             except FileNotFoundError:
-                error(f"Wordlist dosyası bulunamadı: {wordlist_path}")
+                error(f"Wordlist bulunamadı: {wlist}")
                 words = []
 
             if words:
-                info(f"{target} için dizin taraması başlatılıyor...")
-                results = dir_enum(target, words)
-                if results:
+                info(f"Dizin taraması ({len(words)} kelime)…")
+                dir_res = dir_enum(domain, words)
+                if dir_res:
                     success("Açık dizinler bulundu:")
-                    for url, code in results:
-                        color = Fore.GREEN if code == 200 else (
-                            Fore.YELLOW if code in [301, 302] else Fore.MAGENTA
-                        )
-                        print(f"{color}- {url} ({code}){Style.RESET_ALL}")
-                    found_dirs = [url for url, _ in results]
+                    _print_dirs(dir_res)
+                    found_dirs = [u for u, _ in dir_res]
                 else:
-                    info("Hiçbir dizin bulunamadı.")
+                    info("Dizin bulunamadı.")
 
+        ####################################################
+        # 2.6 Vulnerability Endpoint Check
+        ####################################################
         if args.vuln:
-            info(f"{target} için zafiyet endpoint taraması başlatılıyor...")
-            vuln_results = check_vuln_endpoints(target)
-            if vuln_results:
-                success("Potansiyel tehlikeli endpoint'ler bulundu:")
-                for url, code in vuln_results:
-                    print(f"{Fore.RED}- {url} ({code}){Style.RESET_ALL}")
+            info("Zafiyet endpoint taraması…")
+            vuln_endpoints = check_vuln_endpoints(domain)
+            if vuln_endpoints:
+                success("Tehlikeli endpoint'ler:")
+                for u, c in vuln_endpoints:
+                    print(f"{Fore.RED}- {u} ({c}){Style.RESET_ALL}")
             else:
-                info("Tehlikeli endpoint bulunamadı.")
+                info("Tehlikeli endpoint yok.")
 
+        ####################################################
+        # 2.7 XSS Scan
+        ####################################################
         if args.xss:
-            info(f"{target} için XSS taraması başlatılıyor...")
-            url_for_xss = target if target.startswith("http") else f"http://{target}"
+            info("XSS taraması…")
+            xss_results = scan_xss(target_url)
+            if xss_results:
+                success("XSS açıkları bulundu:")
+                for u in xss_results:
+                    print(f"{Fore.RED}- {u}{Style.RESET_ALL}")
+            else:
+                info("XSS açığı bulunamadı.")
 
-            try:
-                xss_results = scan_xss(url_for_xss)
-                if xss_results:
-                    success("XSS açıkları bulundu:")
-                    for url in xss_results:
-                        print(f"{Fore.RED}- {url}{Style.RESET_ALL}")
-                else:
-                    info("XSS açığı tespit edilmedi.")
-            except Exception as e:
-                error(f"XSS tarama hatası: {e}")
-                xss_results = []
+        ####################################################
+        # 2.8 Form ➜ Parametre ➜ Payload ➜ Test zinciri
+        ####################################################
+        if args.form or args.formtest:
+            form_data, form_test_results = _scan_and_test_forms(target_url, args.verbose)
 
-        output_name = args.output if args.output else f"{target.replace('.', '_')}_report.json"
-        output_path = os.path.join("output", output_name)
+        ####################################################
+        # 2.9 Raporlama
+        ####################################################
+        out_name = (
+            args.output if args.output else f"{domain.replace('.', '_')}_report.json"
+        )
+        out_path = Path("output") / out_name
 
-        if write_json_report(
-            domain=target,
+        success_flag = write_json_report(
+            domain=domain,
             subdomains=subdomains,
             open_ports=open_ports,
             found_dirs=found_dirs,
-            vuln_endpoints=vuln_results,
+            vuln_endpoints=vuln_endpoints,
             xss_results=xss_results,
-            filename=output_path
-        ):
-            success(f"Tüm sonuçlar '{output_path}' dosyasına kaydedildi.")
+            form_data=form_data,
+            form_test_results=form_test_results,
+            filename=str(out_path),
+        )
+
+        if success_flag:
+            success(f"Tüm sonuçlar '{out_path}' dosyasına kaydedildi.")
             try:
-                generate_html_report(output_path)
-            except Exception as e:
-                error(f"HTML raporu oluşturulamadı: {e}")
+                generate_html_report(str(out_path))
+            except Exception as exc:
+                error(f"HTML raporu oluşturulamadı: {exc}")
         else:
             error("Sonuçlar kaydedilemedi.")
 
-    except Exception as e:
-        error(f"Beklenmeyen bir hata: {e}")
+    except Exception as exc:
+        error(f"Beklenmeyen hata: {exc}")
 
-    duration = datetime.now() - start_time
-    info(f"{target} için tarama süresi: {duration}")
+    dur = datetime.now() - start_ts
+    info(f"{domain} taraması tamamlandı (süre: {dur})")
+
+############################################################
+# 3. CLI
+############################################################
 
 def main():
-    parser = argparse.ArgumentParser(description="WVS-Recon - Çoklu Hedef CLI Aracı")
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("--target", help="Tek hedef domain (örn: example.com)")
-    group.add_argument("--list", help="Hedef domain listesi (örn: targets.txt)")
-    parser.add_argument("--subdomain", action="store_true", help="Subdomain taraması yap")
-    parser.add_argument("--ports", action="store_true", help="Port taraması yap")
-    parser.add_argument("--dirs", action="store_true", help="Dizin taraması yap")
-    parser.add_argument("--vuln", action="store_true", help="Zafiyet endpoint taraması yap")
-    parser.add_argument("--xss", action="store_true", help="XSS açıklarını test et")
-    parser.add_argument("--fast", action="store_true", help="Hızlı tarama modunu etkinleştir")
-    parser.add_argument("--output", help="Çıktı JSON dosya adı (sadece --target ile birlikte)")
+    parser = argparse.ArgumentParser(
+        description="WVS-Recon – Çoklu Hedef Güvenlik Tarayıcısı"
+    )
+
+    tgt_grp = parser.add_mutually_exclusive_group(required=True)
+    tgt_grp.add_argument("--target", help="Tek hedef domain (örn: example.com)")
+    tgt_grp.add_argument("--list", help="Dosyadan hedef listesi (örn: targets.txt)")
+
+    parser.add_argument("--subdomain", action="store_true", help="Subdomain taraması")
+    parser.add_argument("--ports", action="store_true", help="Port taraması")
+    parser.add_argument("--dirs", action="store_true", help="Dizin taraması")
+    parser.add_argument("--vuln", action="store_true", help="Zafiyet endpoint taraması")
+    parser.add_argument("--xss", action="store_true", help="XSS taraması")
+    parser.add_argument("--form", action="store_true", help="Form & input bul")
+    parser.add_argument("--formtest", action="store_true", help="Formlara payload gönder & test et")
+    parser.add_argument("--fast", action="store_true", help="Hızlı mod (küçük wordlist)")
+    parser.add_argument("--wordlist", help="Özel wordlist yolu (yalnızca --dirs ile)")
+    parser.add_argument("--output", help="Çıktı JSON adı (sadece --target ile)")
+    parser.add_argument("--verbose", action="store_true", help="Detaylı payload/log çıktı")
+
     args = parser.parse_args()
 
     if args.target:
         scan_target(args.target, args)
     elif args.list:
         try:
-            with open(args.list, "r", encoding="utf-8") as f:
-                targets = [line.strip() for line in f if line.strip()]
-            for target in targets:
-                scan_target(target, args)
+            with open(args.list, "r", encoding="utf-8") as fh:
+                targets = [t.strip() for t in fh if t.strip()]
+            for dom in targets:
+                scan_target(dom, args)
         except FileNotFoundError:
             error(f"Liste dosyası bulunamadı: {args.list}")
-        except Exception as e:
-            error(f"Liste okunamadı: {e}")
+        except Exception as exc:
+            error(f"Liste okunamadı: {exc}")
+
 
 if __name__ == "__main__":
     main()

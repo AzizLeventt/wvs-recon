@@ -1,11 +1,89 @@
 {
     "domain": "testphp.vulnweb.com",
     "subdomains": [],
-    "open_ports": [
-        80
+    "open_ports": [],
+    "found_dirs": [],
+    "vuln_endpoints": [],
+    "xss_results": [],
+    "form_data": [
+        {
+            "action": "http://testphp.vulnweb.com/search.php?test=query",
+            "method": "post",
+            "inputs": [
+                {
+                    "type": "text",
+                    "name": "searchFor"
+                },
+                {
+                    "type": "submit",
+                    "name": "goButton"
+                }
+            ]
+        }
     ],
-    "found_dirs": [
-        "http://testphp.vulnweb.com/admin"
-    ],
-    "vuln_endpoints": []
+    "form_test_results": [
+        {
+            "method": "post",
+            "action": "http://testphp.vulnweb.com/search.php?test=query",
+            "payload": {
+                "searchFor": "<script>alert(1)</script>"
+            },
+            "status": 200,
+            "vulnerable": true
+        },
+        {
+            "method": "post",
+            "action": "http://testphp.vulnweb.com/search.php?test=query",
+            "payload": {
+                "searchFor": "' OR '1'='1"
+            },
+            "status": 200,
+            "vulnerable": true
+        },
+        {
+            "method": "post",
+            "action": "http://testphp.vulnweb.com/search.php?test=query",
+            "payload": {
+                "searchFor": "admin"
+            },
+            "status": 200,
+            "vulnerable": true
+        },
+        {
+            "method": "post",
+            "action": "http://testphp.vulnweb.com/search.php?test=query",
+            "payload": {
+                "searchFor": "normalinput"
+            },
+            "status": 200,
+            "vulnerable": true
+        },
+        {
+            "method": "post",
+            "action": "http://testphp.vulnweb.com/search.php?test=query",
+            "payload": {
+                "searchFor": "'; DROP TABLE users; --"
+            },
+            "status": 200,
+            "vulnerable": true
+        },
+        {
+            "method": "post",
+            "action": "http://testphp.vulnweb.com/search.php?test=query",
+            "payload": {
+                "searchFor": "<svg/onload=alert(1)>"
+            },
+            "status": 200,
+            "vulnerable": true
+        },
+        {
+            "method": "post",
+            "action": "http://testphp.vulnweb.com/search.php?test=query",
+            "payload": {
+                "goButton": "Submit"
+            },
+            "status": 200,
+            "vulnerable": false
+        }
+    ]
 }

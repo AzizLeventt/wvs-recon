@@ -206,3 +206,372 @@
 [2025-06-24 11:23:02] [i] XSS açığı tespit edilmedi.
 [2025-06-24 11:23:02] [+] Tüm sonuçlar 'output\testxss.json' dosyasına kaydedildi.
 [2025-06-24 11:23:02] [i] testphp.vulnweb.com için tarama süresi: 0:00:16.334645
+[2025-06-24 14:32:40] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 14:32:40] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 14:32:40] [i] testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 14:32:41] [+] 1 form bulundu.
+[2025-06-24 14:32:41] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 14:32:41] [x] HTML raporu oluşturulamadı: 'url'
+[2025-06-24 14:32:41] [i] testphp.vulnweb.com için tarama süresi: 0:00:00.635094
+[2025-06-24 14:36:05] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 14:36:05] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 14:36:05] [i] testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 14:36:06] [+] 1 form bulundu.
+[2025-06-24 14:36:06] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 14:36:06] [i] testphp.vulnweb.com için tarama süresi: 0:00:00.751336
+[2025-06-24 14:50:08] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 14:50:08] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 14:50:08] [i] testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 14:50:08] [+] 1 form bulundu.
+[2025-06-24 14:50:08] [x] Beklenmeyen bir hata: 'list' object has no attribute 'items'
+[2025-06-24 14:50:08] [i] testphp.vulnweb.com için tarama süresi: 0:00:00.439285
+[2025-06-24 14:53:38] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 14:53:38] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 14:53:38] [i] testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 14:53:39] [+] 1 form bulundu.
+[2025-06-24 14:53:39] [x] Beklenmeyen bir hata: 'list' object has no attribute 'items'
+[2025-06-24 14:53:39] [i] testphp.vulnweb.com için tarama süresi: 0:00:00.453101
+[2025-06-24 14:56:19] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 14:56:19] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 14:56:19] [i] testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 14:56:19] [+] 1 form bulundu.
+[2025-06-24 14:56:19] [+] Tüm sonuçlar 'output\test_form.json' dosyasına kaydedildi.
+[2025-06-24 14:56:20] [i] testphp.vulnweb.com için tarama süresi: 0:00:01.235576
+[2025-06-24 16:02:53] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 16:02:54] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 16:02:54] [i] testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 16:02:54] [+] 1 form bulundu.
+[2025-06-24 16:02:55] [+] Tüm sonuçlar 'output\test_form.json' dosyasına kaydedildi.
+[2025-06-24 16:02:55] [x] HTML raporu oluşturulamadı: 'list' object has no attribute 'items'
+[2025-06-24 16:02:55] [i] testphp.vulnweb.com için tarama süresi: 0:00:01.104065
+[2025-06-24 16:05:36] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 16:05:36] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 16:05:36] [i] testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 16:05:36] [+] 1 form bulundu.
+[2025-06-24 16:05:37] [+] Tüm sonuçlar 'output\test_form.json' dosyasına kaydedildi.
+[2025-06-24 16:05:37] [i] testphp.vulnweb.com için tarama süresi: 0:00:00.903197
+[2025-06-24 16:07:14] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 16:07:14] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 16:07:14] [i] testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 16:07:14] [+] 1 form bulundu.
+[2025-06-24 16:07:15] [+] Tüm sonuçlar 'output\test_form.json' dosyasına kaydedildi.
+[2025-06-24 16:07:15] [i] testphp.vulnweb.com için tarama süresi: 0:00:00.872590
+[2025-06-24 16:13:06] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 16:13:06] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 16:13:06] [i] testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 16:13:07] [+] 1 form bulundu.
+[2025-06-24 16:13:07] [+] Tüm sonuçlar 'output\test_form.json' dosyasına kaydedildi.
+[2025-06-24 16:13:07] [i] testphp.vulnweb.com için tarama süresi: 0:00:00.847729
+[2025-06-24 16:29:21] [i] Hedef alındı: sebscafe.com
+[2025-06-24 16:29:22] [i] sebscafe.com domaininin IP adresi: 34.120.137.41
+[2025-06-24 16:29:22] [i] sebscafe.com için dizin taraması başlatılıyor (10 kelime)...
+[2025-06-24 16:29:27] [i] Hiçbir dizin bulunamadı.
+[2025-06-24 16:29:27] [+] Tüm sonuçlar 'output\sebscafe_com_report.json' dosyasına kaydedildi.
+[2025-06-24 16:29:27] [i] sebscafe.com için tarama süresi: 0:00:05.846533
+[2025-06-24 16:29:27] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 16:29:27] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 16:29:27] [i] testphp.vulnweb.com için dizin taraması başlatılıyor (10 kelime)...
+[2025-06-24 16:29:32] [+] Açık dizinler bulundu:
+[2025-06-24 16:29:32] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 16:29:32] [i] testphp.vulnweb.com için tarama süresi: 0:00:04.485761
+[2025-06-24 16:29:32] [i] Hedef alındı: example.com
+[2025-06-24 16:29:32] [i] example.com domaininin IP adresi: 23.192.228.80
+[2025-06-24 16:29:32] [i] example.com için dizin taraması başlatılıyor (10 kelime)...
+[2025-06-24 16:29:39] [i] Hiçbir dizin bulunamadı.
+[2025-06-24 16:29:39] [+] Tüm sonuçlar 'output\example_com_report.json' dosyasına kaydedildi.
+[2025-06-24 16:29:39] [i] example.com için tarama süresi: 0:00:06.874510
+[2025-06-24 16:34:21] [i] Hedef alındı: sebscafe.com
+[2025-06-24 16:34:21] [i] sebscafe.com domaininin IP adresi: 34.120.137.41
+[2025-06-24 16:34:21] [i] sebscafe.com için dizin taraması başlatılıyor (10 kelime)...
+[2025-06-24 16:34:25] [i] Hiçbir dizin bulunamadı.
+[2025-06-24 16:34:25] [+] Tüm sonuçlar 'output\sebscafe_com_report.json' dosyasına kaydedildi.
+[2025-06-24 16:34:25] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\sebscafe_com_report.html
+[2025-06-24 16:34:25] [i] sebscafe.com için tarama süresi: 0:00:04.610430
+[2025-06-24 16:34:25] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 16:34:25] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 16:34:25] [i] testphp.vulnweb.com için dizin taraması başlatılıyor (10 kelime)...
+[2025-06-24 16:34:30] [+] Açık dizinler bulundu:
+[2025-06-24 16:34:30] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 16:34:30] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 16:34:30] [i] testphp.vulnweb.com için tarama süresi: 0:00:04.480133
+[2025-06-24 16:34:30] [i] Hedef alındı: example.com
+[2025-06-24 16:34:30] [i] example.com domaininin IP adresi: 23.215.0.138
+[2025-06-24 16:34:30] [i] example.com için dizin taraması başlatılıyor (10 kelime)...
+[2025-06-24 16:34:36] [i] Hiçbir dizin bulunamadı.
+[2025-06-24 16:34:36] [+] Tüm sonuçlar 'output\example_com_report.json' dosyasına kaydedildi.
+[2025-06-24 16:34:36] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\example_com_report.html
+[2025-06-24 16:34:36] [i] example.com için tarama süresi: 0:00:06.448115
+[2025-06-24 16:38:42] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 16:38:42] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 16:38:42] [i] testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 16:38:42] [+] 1 form bulundu.
+[2025-06-24 16:38:42] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 16:38:43] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 16:38:43] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 16:38:43] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 16:38:43] [i] testphp.vulnweb.com için tarama süresi: 0:00:00.891332
+[2025-06-24 16:43:24] [i] Hedef alındı: sebscafe.com
+[2025-06-24 16:43:24] [+] 2 subdomain bulundu:
+[2025-06-24 16:43:25] [i] sebscafe.com IP → 34.120.137.41
+[2025-06-24 16:43:25] [i] Port taraması başlatılıyor…
+[2025-06-24 16:43:36] [+] Açık portlar: [80, 443]
+[2025-06-24 16:43:36] [i] Dizin taraması (10 kelime)…
+[2025-06-24 16:43:40] [i] Dizin bulunamadı.
+[2025-06-24 16:43:40] [i] Zafiyet endpoint taraması…
+[2025-06-24 16:43:44] [i] Tehlikeli endpoint yok.
+[2025-06-24 16:43:44] [i] XSS taraması…
+[2025-06-24 16:43:46] [i] XSS açığı bulunamadı.
+[2025-06-24 16:43:46] [i] http://sebscafe.com için form taraması başlatılıyor...
+[2025-06-24 16:43:46] [+] 2 form bulundu.
+[2025-06-24 16:43:46] [i] [Form 1] GET http://sebscafe.com — 0 param
+[2025-06-24 16:43:47] [i]     Güvenli yanıt (200)
+[2025-06-24 16:43:47] [i] [Form 2] GET http://sebscafe.com — 0 param
+[2025-06-24 16:43:47] [i]     Güvenli yanıt (200)
+[2025-06-24 16:43:47] [+] Tüm sonuçlar 'output\sebscafe_com_report.json' dosyasına kaydedildi.
+[2025-06-24 16:43:47] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\sebscafe_com_report.html
+[2025-06-24 16:43:47] [i] sebscafe.com taraması tamamlandı (süre: 0:00:23.349572)
+[2025-06-24 16:43:47] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 16:43:57] [i] Hiç subdomain bulunamadı.
+[2025-06-24 16:43:57] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 16:43:57] [i] Port taraması başlatılıyor…
+[2025-06-24 16:44:08] [+] Açık portlar: [80]
+[2025-06-24 16:44:08] [i] Dizin taraması (10 kelime)…
+[2025-06-24 16:44:13] [+] Açık dizinler bulundu:
+[2025-06-24 16:44:13] [i] Zafiyet endpoint taraması…
+[2025-06-24 16:44:17] [i] Tehlikeli endpoint yok.
+[2025-06-24 16:44:17] [i] XSS taraması…
+[2025-06-24 16:44:18] [+] XSS açıkları bulundu:
+[2025-06-24 16:44:18] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 16:44:18] [+] 1 form bulundu.
+[2025-06-24 16:44:18] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 16:44:19] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 16:44:19] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 16:44:19] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 16:44:19] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:31.837701)
+[2025-06-24 16:44:19] [i] Hedef alındı: example.com
+[2025-06-24 16:44:21] [+] 11 subdomain bulundu:
+[2025-06-24 16:44:21] [i] example.com IP → 23.192.228.84
+[2025-06-24 16:44:21] [i] Port taraması başlatılıyor…
+[2025-06-24 16:44:32] [+] Açık portlar: [80, 443]
+[2025-06-24 16:44:32] [i] Dizin taraması (10 kelime)…
+[2025-06-24 16:44:39] [i] Dizin bulunamadı.
+[2025-06-24 16:44:39] [i] Zafiyet endpoint taraması…
+[2025-06-24 16:44:46] [i] Tehlikeli endpoint yok.
+[2025-06-24 16:44:46] [i] XSS taraması…
+[2025-06-24 16:44:46] [i] XSS açığı bulunamadı.
+[2025-06-24 16:44:46] [i] http://example.com için form taraması başlatılıyor...
+[2025-06-24 16:44:47] [i] Hiç form bulunamadı.
+[2025-06-24 16:44:47] [+] Tüm sonuçlar 'output\example_com_report.json' dosyasına kaydedildi.
+[2025-06-24 16:44:47] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\example_com_report.html
+[2025-06-24 16:44:47] [i] example.com taraması tamamlandı (süre: 0:00:27.709677)
+[2025-06-24 16:52:56] [i] Hedef alındı: sebscafe.com
+[2025-06-24 16:52:57] [+] 2 subdomain bulundu:
+[2025-06-24 16:52:57] [i] sebscafe.com IP → 34.120.137.41
+[2025-06-24 16:52:57] [i] Port taraması başlatılıyor…
+[2025-06-24 16:53:07] [+] Açık portlar: [49, 80, 127, 155, 443]
+[2025-06-24 16:53:07] [i] Dizin taraması (10 kelime)…
+[2025-06-24 16:53:12] [i] Dizin bulunamadı.
+[2025-06-24 16:53:12] [i] Zafiyet endpoint taraması…
+[2025-06-24 16:53:15] [i] Tehlikeli endpoint yok.
+[2025-06-24 16:53:15] [i] XSS taraması…
+[2025-06-24 16:53:17] [i] XSS açığı bulunamadı.
+[2025-06-24 16:53:17] [i] http://sebscafe.com için form taraması başlatılıyor...
+[2025-06-24 16:53:17] [+] 2 form bulundu.
+[2025-06-24 16:53:17] [i] [Form 1] GET http://sebscafe.com — 0 param
+[2025-06-24 16:53:18] [i]     Güvenli yanıt (200)
+[2025-06-24 16:53:18] [i] [Form 2] GET http://sebscafe.com — 0 param
+[2025-06-24 16:53:18] [i]     Güvenli yanıt (200)
+[2025-06-24 16:53:18] [+] Tüm sonuçlar 'output\sebscafe_com_report.json' dosyasına kaydedildi.
+[2025-06-24 16:53:18] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\sebscafe_com_report.html
+[2025-06-24 16:53:18] [i] sebscafe.com taraması tamamlandı (süre: 0:00:21.901908)
+[2025-06-24 16:53:18] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 16:53:19] [i] Hiç subdomain bulunamadı.
+[2025-06-24 16:53:19] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 16:53:19] [i] Port taraması başlatılıyor…
+[2025-06-24 16:53:30] [+] Açık portlar: [80]
+[2025-06-24 16:53:30] [i] Dizin taraması (10 kelime)…
+[2025-06-24 16:53:34] [+] Açık dizinler bulundu:
+[2025-06-24 16:53:34] [i] Zafiyet endpoint taraması…
+[2025-06-24 16:53:39] [i] Tehlikeli endpoint yok.
+[2025-06-24 16:53:39] [i] XSS taraması…
+[2025-06-24 16:53:39] [+] XSS açıkları bulundu:
+[2025-06-24 16:53:39] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 16:53:40] [+] 1 form bulundu.
+[2025-06-24 16:53:40] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 16:53:40] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 16:53:40] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 16:53:40] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 16:53:40] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:21.894245)
+[2025-06-24 16:53:40] [i] Hedef alındı: example.com
+[2025-06-24 16:53:41] [+] 11 subdomain bulundu:
+[2025-06-24 16:53:41] [i] example.com IP → 23.215.0.138
+[2025-06-24 16:53:41] [i] Port taraması başlatılıyor…
+[2025-06-24 16:53:52] [+] Açık portlar: [80, 443]
+[2025-06-24 16:53:52] [i] Dizin taraması (10 kelime)…
+[2025-06-24 16:53:58] [i] Dizin bulunamadı.
+[2025-06-24 16:53:58] [i] Zafiyet endpoint taraması…
+[2025-06-24 16:54:04] [i] Tehlikeli endpoint yok.
+[2025-06-24 16:54:04] [i] XSS taraması…
+[2025-06-24 16:54:04] [i] XSS açığı bulunamadı.
+[2025-06-24 16:54:04] [i] http://example.com için form taraması başlatılıyor...
+[2025-06-24 16:54:04] [i] Hiç form bulunamadı.
+[2025-06-24 16:54:04] [+] Tüm sonuçlar 'output\example_com_report.json' dosyasına kaydedildi.
+[2025-06-24 16:54:04] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\example_com_report.html
+[2025-06-24 16:54:04] [i] example.com taraması tamamlandı (süre: 0:00:24.204459)
+[2025-06-24 17:11:00] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 17:11:00] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 17:11:00] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 17:11:01] [+] 1 form bulundu.
+[2025-06-24 17:11:01] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 17:11:01] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 17:11:01] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 17:11:01] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 17:11:01] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:01.113485)
+[2025-06-24 17:11:08] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 17:11:08] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 17:11:08] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 17:11:08] [+] 1 form bulundu.
+[2025-06-24 17:11:08] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 17:11:09] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 17:11:09] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 17:11:09] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 17:11:09] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:00.872158)
+[2025-06-24 17:12:17] [i] Hedef alındı: www.w3schools.com/html/html_forms.asp
+[2025-06-24 17:12:17] [x] IP adresi alınamadı: [Errno 11001] getaddrinfo failed
+[2025-06-24 17:12:42] [i] Hedef alındı: www.w3schools.com
+[2025-06-24 17:12:42] [i] www.w3schools.com IP → 159.146.119.64
+[2025-06-24 17:12:42] [i] http://www.w3schools.com için form taraması başlatılıyor...
+[2025-06-24 17:12:42] [+] 1 form bulundu.
+[2025-06-24 17:12:42] [i] [Form 1] GET http://www.w3schools.com/action_page.php — 0 param
+[2025-06-24 17:12:43] [i]     Güvenli yanıt (200)
+[2025-06-24 17:12:43] [+] Tüm sonuçlar 'output\www_w3schools_com_report.json' dosyasına kaydedildi.
+[2025-06-24 17:12:43] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\www_w3schools_com_report.html
+[2025-06-24 17:12:43] [i] www.w3schools.com taraması tamamlandı (süre: 0:00:00.705321)
+[2025-06-24 17:18:10] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 17:18:10] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 17:18:10] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 17:18:11] [+] 1 form bulundu.
+[2025-06-24 17:18:11] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 17:18:11] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 17:18:11] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 17:18:11] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 17:18:11] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:00.884024)
+[2025-06-24 17:33:56] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 17:33:56] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 17:33:56] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 17:33:57] [+] 1 form bulundu.
+[2025-06-24 17:33:57] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 17:33:57] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 17:33:57] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 17:33:57] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 17:33:57] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:00.879384)
+[2025-06-24 17:39:41] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 17:39:41] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 17:39:41] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 17:39:41] [+] 1 form bulundu.
+[2025-06-24 17:39:41] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 17:39:42] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 17:39:42] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 17:39:42] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 17:39:42] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:00.922199)
+[2025-06-24 17:39:55] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 17:39:55] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 17:39:55] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 17:39:55] [+] 1 form bulundu.
+[2025-06-24 17:39:55] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 17:39:55] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 17:39:55] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 17:39:55] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 17:39:55] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:00.847944)
+[2025-06-24 17:44:51] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 17:44:51] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 17:44:51] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 17:44:51] [+] 1 form bulundu.
+[2025-06-24 17:44:51] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 17:44:52] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 17:44:52] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 17:44:52] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 17:44:52] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:00.865885)
+[2025-06-24 17:44:57] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 17:44:57] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 17:44:57] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 17:44:58] [+] 1 form bulundu.
+[2025-06-24 17:44:58] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 17:44:58] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 17:44:58] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 17:44:58] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 17:44:58] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:00.854020)
+[2025-06-24 17:45:49] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 17:45:49] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 17:45:49] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 17:45:50] [+] 1 form bulundu.
+[2025-06-24 17:45:50] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 17:45:50] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 17:45:50] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 17:45:50] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 17:45:50] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:00.848767)
+[2025-06-24 17:45:54] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 17:45:54] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 17:45:54] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 17:45:54] [+] 1 form bulundu.
+[2025-06-24 17:45:54] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 17:45:55] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 17:45:55] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 17:45:55] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 17:45:55] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:00.897301)
+[2025-06-24 17:51:58] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 17:51:58] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 17:51:58] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 17:51:58] [+] 1 form bulundu.
+[2025-06-24 17:51:58] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 17:51:59] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 17:51:59] [+] Tüm sonuçlar 'output\reports\full_test.html' dosyasına kaydedildi.
+[2025-06-24 17:51:59] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\reports\full_test.html
+[2025-06-24 17:51:59] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:00.883851)
+[2025-06-24 17:57:03] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 17:57:03] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 17:57:03] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 17:57:03] [+] 1 form bulundu.
+[2025-06-24 17:57:03] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 17:57:04] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 17:57:04] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 17:57:04] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 17:57:04] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:00.825294)
+[2025-06-24 17:59:17] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 17:59:17] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 17:59:17] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 17:59:17] [+] 1 form bulundu.
+[2025-06-24 17:59:17] [i] [Form 1] POST http://testphp.vulnweb.com/search.php?test=query — 2 param
+[2025-06-24 17:59:18] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 17:59:18] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 17:59:18] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 17:59:18] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:00.872344)
+[2025-06-24 18:08:46] [i] Hedef alındı: example.com
+[2025-06-24 18:08:46] [i] example.com IP → 23.215.0.136
+[2025-06-24 18:08:46] [i] http://example.com için form taraması başlatılıyor...
+[2025-06-24 18:08:46] [i] Hiç form bulunamadı.
+[2025-06-24 18:08:46] [+] Tüm sonuçlar 'output\example_com_report.json' dosyasına kaydedildi.
+[2025-06-24 18:08:46] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\example_com_report.html
+[2025-06-24 18:08:46] [i] example.com taraması tamamlandı (süre: 0:00:00.465814)
+[2025-06-24 18:14:31] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 18:14:31] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-24 18:14:31] [i] http://testphp.vulnweb.com için form taraması başlatılıyor...
+[2025-06-24 18:14:31] [+] 1 form bulundu.
+[2025-06-24 18:14:31] [i] [Form 1] Test ediliyor: POST http://testphp.vulnweb.com/search.php?test=query
+[2025-06-24 18:14:31] [i] [Form Test] POST http://testphp.vulnweb.com/search.php?test=query — Payload: {'searchFor': '<script>alert(1)</script>'}
+[2025-06-24 18:14:32] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 18:14:32] [i] [Form Test] POST http://testphp.vulnweb.com/search.php?test=query — Payload: {'searchFor': "' OR '1'='1"}
+[2025-06-24 18:14:32] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 18:14:32] [i] [Form Test] POST http://testphp.vulnweb.com/search.php?test=query — Payload: {'searchFor': 'admin'}
+[2025-06-24 18:14:33] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 18:14:33] [i] [Form Test] POST http://testphp.vulnweb.com/search.php?test=query — Payload: {'searchFor': 'normalinput'}
+[2025-06-24 18:14:33] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 18:14:33] [i] [Form Test] POST http://testphp.vulnweb.com/search.php?test=query — Payload: {'searchFor': "'; DROP TABLE users; --"}
+[2025-06-24 18:14:33] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 18:14:33] [i] [Form Test] POST http://testphp.vulnweb.com/search.php?test=query — Payload: {'searchFor': '<svg/onload=alert(1)>'}
+[2025-06-24 18:14:34] [+]     ⚠️ Potansiyel açık! (200)
+[2025-06-24 18:14:34] [i] [Form Test] POST http://testphp.vulnweb.com/search.php?test=query — Payload: {'goButton': 'Submit'}
+[2025-06-24 18:14:34] [i]     Güvenli yanıt (200)
+[2025-06-24 18:14:34] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 18:14:34] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-24 18:14:34] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:03.598410)

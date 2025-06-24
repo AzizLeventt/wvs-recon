@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset='UTF-8'>
+    <title>WVS-Recon Raporu - testphp.vulnweb.com</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: #4a148c; }
+        h2 { color: #6a1b9a; }
+        ul { list-style-type: none; padding-left: 0; }
+        li { margin-bottom: 5px; }
+        .code { font-family: monospace; background: #f0f0f0; padding: 3px 6px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>WVS-Recon Raporu</h1>
+    <p><strong>Hedef:</strong> testphp.vulnweb.com</p>
+    <h2>Formlar</h2>
+    <ul>
+        <li>
+            <b>Yöntem:</b> POST<br>
+            <b>Action:</b> http://testphp.vulnweb.com/search.php?test=query<br>
+            <b>Inputlar:</b><ul>
+                <li>searchFor (text)</li>
+                <li>goButton (submit)</li>
+            </ul><br>
+        </li>
+    </ul>
+    <h2>Form Test Sonuçları</h2>
+    <ul>
+        <li>
+            <b>Yöntem:</b> POST<br>
+            <b>Action:</b> http://testphp.vulnweb.com/search.php?test=query<br>
+            <b>Inputlar:</b><ul>
+                <li>searchFor (<script>alert(1)</script>)</li>
+                <li>goButton (Submit)</li>
+            </ul>
+            <b style='color:red;'>⚠️ Potansiyel açık tespit edildi!</b><br>
+        </li>
+    </ul>
+</body>
+</html>
