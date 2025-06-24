@@ -1,0 +1,134 @@
+[2025-06-24 09:12:17] [i] Hedef alındı: sebscafe.com
+[2025-06-24 09:12:17] [+] 2 subdomain bulundu:
+
+[2025-06-24 09:12:17] [i] sebscafe.com domaininin IP adresi: 34.120.137.41
+[2025-06-24 09:12:17] [i] 34.120.137.41 için port taraması başlatılıyor...
+[2025-06-24 09:12:28] [+] Açık portlar: [80, 443]
+[2025-06-24 09:12:28] [i] sebscafe.com için dizin taraması başlatılıyor...
+[2025-06-24 09:12:33] [i] Hiçbir dizin bulunamadı.
+[2025-06-24 09:12:34] [+] Tüm sonuçlar 'output/report.json' dosyasına kaydedildi.
+[2025-06-24 09:15:23] [i] Hedef alındı: sebscafe.com
+[2025-06-24 09:15:23] [+] 2 subdomain bulundu:
+
+[2025-06-24 09:15:23] [i] sebscafe.com domaininin IP adresi: 34.120.137.41
+[2025-06-24 09:15:23] [i] 34.120.137.41 için port taraması başlatılıyor...
+[2025-06-24 09:15:34] [+] Açık portlar: [80, 443]
+[2025-06-24 09:15:34] [i] sebscafe.com için dizin taraması başlatılıyor...
+[2025-06-24 09:15:39] [i] Hiçbir dizin bulunamadı.
+[2025-06-24 09:15:39] [+] Tüm sonuçlar 'output/report.json' dosyasına kaydedildi.
+[2025-06-24 09:15:39] [i] Tarama süresi: 0:00:17.234440
+[2025-06-24 09:18:26] [i] Hedef alındı: sebscafe.com
+[2025-06-24 09:18:26] [i] sebscafe.com domaininin IP adresi: 34.120.137.41
+[2025-06-24 09:18:26] [i] 34.120.137.41 için port taraması başlatılıyor...
+[2025-06-24 09:18:37] [+] Açık portlar: [80, 443]
+[2025-06-24 09:18:37] [x] Beklenmeyen bir hata: write_json_report() got an unexpected keyword argument 'filename'
+[2025-06-24 09:18:37] [i] Tarama süresi: 0:00:11.177022
+[2025-06-24 09:19:35] [i] Hedef alındı: sebscafe.com
+[2025-06-24 09:19:35] [i] sebscafe.com domaininin IP adresi: 34.120.137.41
+[2025-06-24 09:19:35] [i] 34.120.137.41 için port taraması başlatılıyor...
+[2025-06-24 09:19:46] [+] Açık portlar: [80, 443]
+[2025-06-24 09:19:46] [+] Tüm sonuçlar 'output/sebscan.json' dosyasına kaydedildi.
+[2025-06-24 09:19:46] [i] Tarama süresi: 0:00:11.092516
+[2025-06-24 09:23:08] [i] Hedef alındı: sebscafe.com
+[2025-06-24 09:23:11] [+] 2 subdomain bulundu:
+[2025-06-24 09:23:11] [i] sebscafe.com domaininin IP adresi: 34.120.137.41
+[2025-06-24 09:23:11] [i] 34.120.137.41 için port taraması başlatılıyor...
+[2025-06-24 09:23:22] [+] Açık portlar: [80, 443]
+[2025-06-24 09:23:22] [i] sebscafe.com için dizin taraması başlatılıyor...
+[2025-06-24 09:23:28] [i] Hiçbir dizin bulunamadı.
+[2025-06-24 09:23:28] [+] Tüm sonuçlar 'output\sebscafe_com_report.json' dosyasına kaydedildi.
+[2025-06-24 09:23:28] [i] sebscafe.com için tarama süresi: 0:00:19.884189
+[2025-06-24 09:23:28] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 09:23:28] [i] Hiç subdomain bulunamadı.
+[2025-06-24 09:23:28] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 09:23:28] [i] 44.228.249.3 için port taraması başlatılıyor...
+[2025-06-24 09:23:40] [+] Açık portlar: [80]
+[2025-06-24 09:23:40] [i] testphp.vulnweb.com için dizin taraması başlatılıyor...
+[2025-06-24 09:23:44] [+] Açık dizinler bulundu:
+[2025-06-24 09:23:44] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 09:23:44] [i] testphp.vulnweb.com için tarama süresi: 0:00:16.204333
+[2025-06-24 09:23:44] [i] Hedef alındı: example.com
+[2025-06-24 09:23:44] [+] 11 subdomain bulundu:
+[2025-06-24 09:23:44] [i] example.com domaininin IP adresi: 23.192.228.80
+[2025-06-24 09:23:44] [i] 23.192.228.80 için port taraması başlatılıyor...
+[2025-06-24 09:23:56] [+] Açık portlar: [80]
+[2025-06-24 09:23:56] [i] example.com için dizin taraması başlatılıyor...
+[2025-06-24 09:24:02] [i] Hiçbir dizin bulunamadı.
+[2025-06-24 09:24:02] [+] Tüm sonuçlar 'output\example_com_report.json' dosyasına kaydedildi.
+[2025-06-24 09:24:02] [i] example.com için tarama süresi: 0:00:17.744061
+[2025-06-24 09:28:40] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 09:28:45] [i] Hiç subdomain bulunamadı.
+[2025-06-24 09:28:45] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 09:28:45] [i] 44.228.249.3 için port taraması başlatılıyor...
+[2025-06-24 09:28:56] [+] Açık portlar: [80]
+[2025-06-24 09:28:56] [i] testphp.vulnweb.com için dizin taraması başlatılıyor...
+[2025-06-24 09:29:01] [+] Açık dizinler bulundu:
+[2025-06-24 09:29:01] [i] testphp.vulnweb.com için zafiyet endpoint taraması başlatılıyor...
+[2025-06-24 09:29:05] [i] Tehlikeli endpoint bulunamadı.
+[2025-06-24 09:29:05] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 09:29:05] [i] testphp.vulnweb.com için tarama süresi: 0:00:25.265434
+[2025-06-24 09:33:30] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 09:33:30] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 09:33:30] [i] testphp.vulnweb.com için dizin taraması başlatılıyor...
+[2025-06-24 09:33:34] [+] Açık dizinler bulundu:
+[2025-06-24 09:33:34] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 09:33:34] [i] testphp.vulnweb.com için tarama süresi: 0:00:04.570110
+[2025-06-24 10:36:34] [i] Hedef alındı: sebscafe.com
+[2025-06-24 10:36:37] [+] 2 subdomain bulundu:
+
+[2025-06-24 10:36:37] [i] sebscafe.com domaininin IP adresi: 34.120.137.41
+[2025-06-24 10:36:37] [i] 34.120.137.41 için port taraması başlatılıyor...
+[2025-06-24 10:36:48] [+] Açık portlar: [80, 443]
+[2025-06-24 10:36:48] [i] sebscafe.com için dizin taraması başlatılıyor...
+[2025-06-24 10:36:54] [+] Açık dizinler bulundu:
+[2025-06-24 10:36:54] [+] Tüm sonuçlar 'output/report.json' dosyasına kaydedildi.
+[2025-06-24 10:36:54] [i] Tarama süresi: 0:00:25.514719
+[2025-06-24 10:37:33] [i] Hedef alındı: sebscafe.com
+[2025-06-24 10:37:39] [+] 2 subdomain bulundu:
+
+[2025-06-24 10:37:39] [i] sebscafe.com domaininin IP adresi: 34.120.137.41
+[2025-06-24 10:37:39] [i] 34.120.137.41 için port taraması başlatılıyor...
+[2025-06-24 10:37:50] [+] Açık portlar: [80, 443]
+[2025-06-24 10:37:50] [i] sebscafe.com için dizin taraması başlatılıyor...
+[2025-06-24 10:37:54] [i] Hiçbir dizin bulunamadı.
+[2025-06-24 10:37:54] [+] Tüm sonuçlar 'output/report.json' dosyasına kaydedildi.
+[2025-06-24 10:37:54] [i] Tarama süresi: 0:00:23.089975
+[2025-06-24 10:39:18] [i] Hedef alındı: sebscafe.com
+[2025-06-24 10:39:18] [i] sebscafe.com domaininin IP adresi: 34.120.137.41
+[2025-06-24 10:39:18] [i] 34.120.137.41 için port taraması başlatılıyor...
+[2025-06-24 10:39:29] [+] Açık portlar: [80, 443]
+[2025-06-24 10:39:29] [+] Tüm sonuçlar 'output/sebscan.json' dosyasına kaydedildi.
+[2025-06-24 10:39:29] [i] Tarama süresi: 0:00:11.117907
+[2025-06-24 10:41:35] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 10:41:35] [i] Hiç subdomain bulunamadı.
+[2025-06-24 10:41:36] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 10:41:36] [i] 44.228.249.3 için port taraması başlatılıyor...
+[2025-06-24 10:41:47] [+] Açık portlar: [80]
+[2025-06-24 10:41:47] [i] testphp.vulnweb.com için dizin taraması başlatılıyor...
+[2025-06-24 10:41:51] [+] Açık dizinler bulundu:
+[2025-06-24 10:41:51] [i] testphp.vulnweb.com için zafiyet endpoint taraması başlatılıyor...
+[2025-06-24 10:41:56] [i] Tehlikeli endpoint bulunamadı.
+[2025-06-24 10:41:56] [x] Sonuçlar kaydedilemedi.
+[2025-06-24 10:41:56] [i] testphp.vulnweb.com için tarama süresi: 0:00:20.704167
+[2025-06-24 10:42:44] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 10:42:44] [i] Hiç subdomain bulunamadı.
+[2025-06-24 10:42:44] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 10:42:44] [i] 44.228.249.3 için port taraması başlatılıyor...
+[2025-06-24 10:42:55] [+] Açık portlar: [80]
+[2025-06-24 10:42:55] [i] testphp.vulnweb.com için dizin taraması başlatılıyor...
+[2025-06-24 10:42:59] [+] Açık dizinler bulundu:
+[2025-06-24 10:42:59] [i] testphp.vulnweb.com için zafiyet endpoint taraması başlatılıyor...
+[2025-06-24 10:43:04] [i] Tehlikeli endpoint bulunamadı.
+[2025-06-24 10:43:04] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 10:43:04] [i] testphp.vulnweb.com için tarama süresi: 0:00:20.110370
+[2025-06-24 10:46:00] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 10:46:01] [i] Hiç subdomain bulunamadı.
+[2025-06-24 10:46:01] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 10:46:01] [i] 44.228.249.3 için port taraması başlatılıyor...
+[2025-06-24 10:46:12] [+] Açık portlar: [80]
+[2025-06-24 10:46:12] [i] testphp.vulnweb.com için dizin taraması başlatılıyor...
+[2025-06-24 10:46:16] [+] Açık dizinler bulundu:
+[2025-06-24 10:46:16] [i] testphp.vulnweb.com için zafiyet endpoint taraması başlatılıyor...
+[2025-06-24 10:46:21] [i] Tehlikeli endpoint bulunamadı.
+[2025-06-24 10:46:21] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-24 10:46:21] [i] testphp.vulnweb.com için tarama süresi: 0:00:21.017098

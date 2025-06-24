@@ -8,6 +8,5 @@
         80,
         443
     ],
-    "found_dirs": [],
-    "vuln_endpoints": []
+    "found_dirs": []
 }

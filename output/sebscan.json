@@ -1,0 +1,9 @@
+{
+    "domain": "sebscafe.com",
+    "subdomains": [],
+    "open_ports": [
+        80,
+        443
+    ],
+    "found_dirs": []
+}

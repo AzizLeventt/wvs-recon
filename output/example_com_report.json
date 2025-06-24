@@ -1,0 +1,20 @@
+{
+    "domain": "example.com",
+    "subdomains": [
+        "example.com",
+        "www.example.com",
+        "support.example.com",
+        "user@example.com",
+        "dev.example.com",
+        "*.example.com",
+        "m.testexample.com",
+        "m.example.com",
+        "products.example.com",
+        "AS207960 Test Intermediate - example.com",
+        "subjectname@example.com"
+    ],
+    "open_ports": [
+        80
+    ],
+    "found_dirs": []
+}

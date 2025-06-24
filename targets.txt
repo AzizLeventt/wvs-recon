@@ -1,0 +1,3 @@
+sebscafe.com
+testphp.vulnweb.com
+example.com
