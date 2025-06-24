@@ -1,0 +1,12 @@
+{
+    "domain": "testphp.vulnweb.com",
+    "subdomains": [],
+    "open_ports": [],
+    "directories": [
+        "http://testphp.vulnweb.com/admin"
+    ],
+    "vulnerable_endpoints": [],
+    "xss_vulnerabilities": [
+        "http://testphp.vulnweb.com/search.php?test=query"
+    ]
+}

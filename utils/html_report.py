@@ -15,6 +15,7 @@ def generate_html_report(json_path, output_html_path="output/report.html"):
     open_ports = data.get("open_ports", [])
     found_dirs = data.get("found_dirs", [])
     vuln_endpoints = data.get("vuln_endpoints", [])
+    xss_results = data.get("xss_results", [])  # ✅ Doğru anahtar adı
 
     html = f"""
     <html>
@@ -60,27 +61,22 @@ def generate_html_report(json_path, output_html_path="output/report.html"):
                 {''.join(f"<li style='color:red;'>{v}</li>" for v in vuln_endpoints) or "<li>Bulunamadı</li>"}
             </ul>
         </div>
+
+        <div class="section">
+            <h2>🧪 XSS Açıkları</h2>
+            <ul>
+                {''.join(f"<li style='color:orange;'>{x}</li>" for x in xss_results) or "<li>Bulunamadı</li>"}
+            </ul>
+        </div>
     </body>
     </html>
     """
 
-    # Dosyayı yaz ve klasörü oluştur
     os.makedirs(os.path.dirname(output_html_path), exist_ok=True)
     with open(output_html_path, "w", encoding="utf-8") as f:
         f.write(html)
 
-    # Tam dosya yolu (Windows uyumlu, file:/// formatında)
     full_path = os.path.abspath(output_html_path).replace(os.sep, "/")
     url = f"file:///{full_path}"
     print(f"[+] HTML raporu oluşturuldu: {url}")
-
-    # Tarayıcıda aç
     webbrowser.open(url)
-
-# Komut satırından çalıştırıldığında
-if __name__ == "__main__":
-    import sys
-    if len(sys.argv) < 2:
-        print("Kullanım: python utils/html_report.py <json_dosyasi>")
-    else:
-        generate_html_report(sys.argv[1])

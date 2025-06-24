@@ -1,0 +1,37 @@
+# Python derleyici dosyaları
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Sanal ortam klasörleri
+.venv/
+env/
+ENV/
+.ENV/
+venv/
+
+# IDE ve editör ayar dosyaları
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# MacOS ve Windows sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# Loglar
+logs/
+*.log
+
+# Çıktı ve rapor dosyaları
+output/*.json
+output/*.html
+output/*.txt
+
+# Kişisel ayar dosyaları
+*.env
+config/settings.py
+
+# Geçici hedef listeleri
+targets.txt

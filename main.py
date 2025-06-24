@@ -1,5 +1,3 @@
-# main.py
-
 import argparse
 import socket
 import sys
@@ -8,6 +6,7 @@ from modules.subdomain_enum import get_subdomains_crtsh
 from modules.port_scan import run_port_scan
 from modules.dir_enum import dir_enum
 from modules.vuln_checker import check_vuln_endpoints
+from modules.xss_scanner import scan_xss
 from utils.logger import info, success, error
 from utils.file_writer import write_json_report
 from utils.html_report import generate_html_report
@@ -23,6 +22,7 @@ def scan_target(target, args):
     open_ports = []
     found_dirs = []
     vuln_results = []
+    xss_results = []
 
     try:
         if args.subdomain:
@@ -34,7 +34,7 @@ def scan_target(target, args):
             else:
                 info("Hiç subdomain bulunamadı.")
 
-        if args.ports or args.dirs or args.vuln:
+        if args.ports or args.dirs or args.vuln or args.xss:
             try:
                 ip = socket.gethostbyname(target)
                 info(f"{target} domaininin IP adresi: {ip}")
@@ -83,6 +83,22 @@ def scan_target(target, args):
             else:
                 info("Tehlikeli endpoint bulunamadı.")
 
+        if args.xss:
+            info(f"{target} için XSS taraması başlatılıyor...")
+            url_for_xss = target if target.startswith("http") else f"http://{target}"
+
+            try:
+                xss_results = scan_xss(url_for_xss)
+                if xss_results:
+                    success("XSS açıkları bulundu:")
+                    for url in xss_results:
+                        print(f"{Fore.RED}- {url}{Style.RESET_ALL}")
+                else:
+                    info("XSS açığı tespit edilmedi.")
+            except Exception as e:
+                error(f"XSS tarama hatası: {e}")
+                xss_results = []
+
         output_name = args.output if args.output else f"{target.replace('.', '_')}_report.json"
         output_path = os.path.join("output", output_name)
 
@@ -92,11 +108,10 @@ def scan_target(target, args):
             open_ports=open_ports,
             found_dirs=found_dirs,
             vuln_endpoints=vuln_results,
+            xss_results=xss_results,
             filename=output_path
         ):
             success(f"Tüm sonuçlar '{output_path}' dosyasına kaydedildi.")
-
-            # ✅ Otomatik HTML raporu oluştur
             try:
                 generate_html_report(output_path)
             except Exception as e:
@@ -119,6 +134,7 @@ def main():
     parser.add_argument("--ports", action="store_true", help="Port taraması yap")
     parser.add_argument("--dirs", action="store_true", help="Dizin taraması yap")
     parser.add_argument("--vuln", action="store_true", help="Zafiyet endpoint taraması yap")
+    parser.add_argument("--xss", action="store_true", help="XSS açıklarını test et")
     parser.add_argument("--fast", action="store_true", help="Hızlı tarama modunu etkinleştir")
     parser.add_argument("--output", help="Çıktı JSON dosya adı (sadece --target ile birlikte)")
     args = parser.parse_args()

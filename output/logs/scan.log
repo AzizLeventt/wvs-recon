@@ -132,3 +132,77 @@
 [2025-06-24 10:46:21] [i] Tehlikeli endpoint bulunamadı.
 [2025-06-24 10:46:21] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
 [2025-06-24 10:46:21] [i] testphp.vulnweb.com için tarama süresi: 0:00:21.017098
+[2025-06-24 11:06:47] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 11:06:47] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 11:06:47] [i] testphp.vulnweb.com için dizin taraması başlatılıyor...
+[2025-06-24 11:06:52] [+] Açık dizinler bulundu:
+[2025-06-24 11:06:52] [i] testphp.vulnweb.com için XSS taraması başlatılıyor...
+[2025-06-24 11:06:53] [+] XSS açıkları bulundu:
+[2025-06-24 11:06:53] [x] Beklenmeyen bir hata: write_json_report() got an unexpected keyword argument 'xss_results'
+[2025-06-24 11:06:53] [i] testphp.vulnweb.com için tarama süresi: 0:00:05.411518
+[2025-06-24 11:08:58] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 11:08:58] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 11:08:58] [i] testphp.vulnweb.com için dizin taraması başlatılıyor...
+[2025-06-24 11:09:02] [+] Açık dizinler bulundu:
+[2025-06-24 11:09:02] [i] testphp.vulnweb.com için XSS taraması başlatılıyor...
+[2025-06-24 11:09:03] [i] XSS açığı tespit edilmedi.
+[2025-06-24 11:09:03] [+] Tüm sonuçlar 'output\testxss.json' dosyasına kaydedildi.
+[2025-06-24 11:09:03] [i] testphp.vulnweb.com için tarama süresi: 0:00:05.309537
+[2025-06-24 11:11:22] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 11:11:22] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 11:11:22] [i] testphp.vulnweb.com için dizin taraması başlatılıyor...
+[2025-06-24 11:11:26] [+] Açık dizinler bulundu:
+[2025-06-24 11:11:26] [i] testphp.vulnweb.com için XSS taraması başlatılıyor...
+[2025-06-24 11:11:27] [+] XSS açıkları bulundu:
+[2025-06-24 11:11:27] [+] Tüm sonuçlar 'output\output/testxss.json' dosyasına kaydedildi.
+[2025-06-24 11:11:27] [i] testphp.vulnweb.com için tarama süresi: 0:00:05.711059
+[2025-06-24 11:16:24] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 11:16:24] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 11:16:24] [i] testphp.vulnweb.com için dizin taraması başlatılıyor...
+[2025-06-24 11:16:28] [+] Açık dizinler bulundu:
+[2025-06-24 11:16:28] [i] testphp.vulnweb.com için XSS taraması başlatılıyor...
+[2025-06-24 11:16:28] [i] XSS açığı bulunamadı.
+[2025-06-24 11:16:28] [+] Tüm sonuçlar 'output\testxss.json' dosyasına kaydedildi.
+[2025-06-24 11:16:29] [i] testphp.vulnweb.com için tarama süresi: 0:00:04.774917
+[2025-06-24 11:18:54] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 11:18:54] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 11:18:54] [i] testphp.vulnweb.com için dizin taraması başlatılıyor...
+[2025-06-24 11:18:59] [+] Açık dizinler bulundu:
+[2025-06-24 11:18:59] [i] testphp.vulnweb.com için XSS taraması başlatılıyor...
+[2025-06-24 11:19:00] [+] XSS açıkları bulundu:
+[2025-06-24 11:19:00] [x] Beklenmeyen bir hata: write_json_report() got an unexpected keyword argument 'xss_results'
+[2025-06-24 11:19:00] [i] testphp.vulnweb.com için tarama süresi: 0:00:05.413366
+[2025-06-24 11:19:33] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 11:19:33] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 11:19:33] [i] testphp.vulnweb.com için dizin taraması başlatılıyor...
+[2025-06-24 11:19:37] [+] Açık dizinler bulundu:
+[2025-06-24 11:19:37] [i] testphp.vulnweb.com için XSS taraması başlatılıyor...
+[2025-06-24 11:19:38] [+] XSS açıkları bulundu:
+[2025-06-24 11:19:38] [+] Tüm sonuçlar 'output\testxss.json' dosyasına kaydedildi.
+[2025-06-24 11:19:38] [i] testphp.vulnweb.com için tarama süresi: 0:00:05.675139
+[2025-06-24 11:21:17] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 11:21:17] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 11:21:17] [i] testphp.vulnweb.com için dizin taraması başlatılıyor...
+[2025-06-24 11:21:22] [+] Açık dizinler bulundu:
+[2025-06-24 11:21:22] [i] testphp.vulnweb.com için XSS taraması başlatılıyor...
+[2025-06-24 11:21:22] [+] XSS açıkları bulundu:
+[2025-06-24 11:21:22] [+] Tüm sonuçlar 'output\testxss.json' dosyasına kaydedildi.
+[2025-06-24 11:21:23] [i] testphp.vulnweb.com için tarama süresi: 0:00:05.731879
+[2025-06-24 11:21:57] [i] Hedef alındı: sebscafe.com
+[2025-06-24 11:21:57] [i] sebscafe.com domaininin IP adresi: 34.120.137.41
+[2025-06-24 11:21:57] [i] sebscafe.com için dizin taraması başlatılıyor...
+[2025-06-24 11:22:02] [i] Hiçbir dizin bulunamadı.
+[2025-06-24 11:22:02] [i] sebscafe.com için XSS taraması başlatılıyor...
+[2025-06-24 11:22:04] [i] XSS açığı tespit edilmedi.
+[2025-06-24 11:22:04] [+] Tüm sonuçlar 'output\testxss.json' dosyasına kaydedildi.
+[2025-06-24 11:22:04] [i] sebscafe.com için tarama süresi: 0:00:06.746874
+[2025-06-24 11:22:46] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-24 11:22:46] [i] testphp.vulnweb.com domaininin IP adresi: 44.228.249.3
+[2025-06-24 11:22:46] [i] 44.228.249.3 için port taraması başlatılıyor...
+[2025-06-24 11:22:57] [+] Açık portlar: [80]
+[2025-06-24 11:22:57] [i] testphp.vulnweb.com için dizin taraması başlatılıyor...
+[2025-06-24 11:23:02] [+] Açık dizinler bulundu:
+[2025-06-24 11:23:02] [i] testphp.vulnweb.com için XSS taraması başlatılıyor...
+[2025-06-24 11:23:02] [i] XSS açığı tespit edilmedi.
+[2025-06-24 11:23:02] [+] Tüm sonuçlar 'output\testxss.json' dosyasına kaydedildi.
+[2025-06-24 11:23:02] [i] testphp.vulnweb.com için tarama süresi: 0:00:16.334645
