@@ -13,6 +13,9 @@ from modules.vuln_checker import check_vuln_endpoints
 from modules.xss_scanner import scan_xss
 from modules.form_scanner import scan_forms
 from modules.form_tester import test_forms
+from modules.idor_checker import test_idor  # ⬅️ yeni eklendi
+from modules.dir_enum import dir_enum, scan_admin_panels
+
 
 from utils.input_analyzer import analyze_input  # param ayrımı & payload seçimi
 from utils.logger import info, success, error
@@ -86,7 +89,8 @@ def scan_target(domain: str, args: argparse.Namespace):
     xss_results = []
     form_data = []
     form_test_results = []
-
+    idor_results = []  # ⬅️ 2.1 Temel temizlik & başlangıç kısmına eklendi
+    admin_panels = []
     try:
         ####################################################
         # 2.2 Subdomain Enum
@@ -149,6 +153,16 @@ def scan_target(domain: str, args: argparse.Namespace):
                 else:
                     info("Dizin bulunamadı.")
 
+                # Admin panel taraması
+                info("Admin panel taraması başlatılıyor...")
+                admin_panels = scan_admin_panels(domain)
+                if admin_panels:
+                    success("Admin panel yolları bulundu:")
+                    for url, status in admin_panels:
+                        print(f"{Fore.CYAN}- {url} ({status}){Style.RESET_ALL}")
+                else:
+                    info("Admin panel bulunamadı.")
+
         ####################################################
         # 2.6 Vulnerability Endpoint Check
         ####################################################
@@ -182,7 +196,18 @@ def scan_target(domain: str, args: argparse.Namespace):
             form_data, form_test_results = _scan_and_test_forms(target_url, args.verbose)
 
         ####################################################
-        # 2.9 Raporlama
+        # 2.9 IDOR Testi
+        ####################################################
+        if args.formtest:
+            info("IDOR testi başlatılıyor…")
+            idor_results = test_idor(target_url, form_data)
+            if idor_results:
+                success(f"{len(idor_results)} potansiyel IDOR zafiyeti tespit edildi.")
+            else:
+                info("IDOR zafiyeti bulunamadı.")
+
+        ####################################################
+        # 2.10 Raporlama
         ####################################################
         out_name = (
             args.output if args.output else f"{domain.replace('.', '_')}_report.json"
@@ -194,10 +219,12 @@ def scan_target(domain: str, args: argparse.Namespace):
             subdomains=subdomains,
             open_ports=open_ports,
             found_dirs=found_dirs,
+            admin_panels=admin_panels,
             vuln_endpoints=vuln_endpoints,
             xss_results=xss_results,
             form_data=form_data,
             form_test_results=form_test_results,
+            idor_results=idor_results,
             filename=str(out_path),
         )
 

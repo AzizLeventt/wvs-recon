@@ -1,0 +1,27 @@
+{
+  "domain": "sebscafe.com",
+  "subdomains": [
+    "sebscafe.com",
+    "www.sebscafe.com"
+  ],
+  "open_ports": [
+    80,
+    443
+  ],
+  "found_dirs": [],
+  "vuln_endpoints": [],
+  "vulnerabilities": [],
+  "form_data": [
+    {
+      "action": "http://sebscafe.com",
+      "method": "get",
+      "inputs": []
+    },
+    {
+      "action": "http://sebscafe.com",
+      "method": "get",
+      "inputs": []
+    }
+  ],
+  "form_test_results": []
+}

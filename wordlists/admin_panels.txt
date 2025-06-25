@@ -1,0 +1,9 @@
+admin/
+administrator/
+admin/login.php
+adminpanel/
+cpanel/
+admin/index.html
+login/
+admin_area/
+wp-admin/

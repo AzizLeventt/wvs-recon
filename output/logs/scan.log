@@ -575,3 +575,43 @@
 [2025-06-24 18:14:34] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
 [2025-06-24 18:14:34] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
 [2025-06-24 18:14:34] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:03.598410)
+[2025-06-25 13:07:49] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\example.html
+[2025-06-25 13:16:40] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\example.html
+[2025-06-25 17:19:57] [i] Hedef alındı: hedefsite.com
+[2025-06-25 17:19:57] [x] IP adresi alınamadı: [Errno 11002] getaddrinfo failed
+[2025-06-25 17:20:28] [i] Hedef alındı: sebscafe.com
+[2025-06-25 17:20:29] [i] sebscafe.com IP → 34.120.137.41
+[2025-06-25 17:20:29] [i] Dizin taraması (10 kelime)…
+[2025-06-25 17:20:34] [i] Dizin bulunamadı.
+[2025-06-25 17:20:34] [i] Admin panel taraması başlatılıyor...
+[2025-06-25 17:20:39] [i] Admin panel bulunamadı.
+[2025-06-25 17:20:39] [+] Tüm sonuçlar 'output\sebscafe_com_report.json' dosyasına kaydedildi.
+[2025-06-25 17:20:39] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\sebscafe_com_report.html
+[2025-06-25 17:20:39] [i] sebscafe.com taraması tamamlandı (süre: 0:00:10.916621)
+[2025-06-25 17:23:00] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-25 17:23:01] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-25 17:23:01] [i] Dizin taraması (10 kelime)…
+[2025-06-25 17:23:05] [+] Açık dizinler bulundu:
+[2025-06-25 17:23:05] [i] Admin panel taraması başlatılıyor...
+[2025-06-25 17:23:11] [+] Admin panel yolları bulundu:
+[2025-06-25 17:23:11] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-25 17:23:11] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-25 17:23:11] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:10.159971)
+[2025-06-25 17:23:24] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-25 17:23:24] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-25 17:23:24] [i] Dizin taraması (10 kelime)…
+[2025-06-25 17:23:29] [+] Açık dizinler bulundu:
+[2025-06-25 17:23:29] [i] Admin panel taraması başlatılıyor...
+[2025-06-25 17:23:34] [+] Admin panel yolları bulundu:
+[2025-06-25 17:23:34] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-25 17:23:34] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-25 17:23:34] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:09.970248)
+[2025-06-25 17:24:00] [i] Hedef alındı: testphp.vulnweb.com
+[2025-06-25 17:24:00] [i] testphp.vulnweb.com IP → 44.228.249.3
+[2025-06-25 17:24:00] [i] Dizin taraması (10 kelime)…
+[2025-06-25 17:24:04] [+] Açık dizinler bulundu:
+[2025-06-25 17:24:04] [i] Admin panel taraması başlatılıyor...
+[2025-06-25 17:24:10] [+] Admin panel yolları bulundu:
+[2025-06-25 17:24:10] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
+[2025-06-25 17:24:10] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
+[2025-06-25 17:24:10] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:09.927703)

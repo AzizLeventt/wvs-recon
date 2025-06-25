@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>WVS-Recon</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>WVS-Recon Web Uygulaması</h1>
+        <form method="POST" onsubmit="disableButton()">
+            <label for="domain">Hedef Alan Adı:</label>
+            <input type="text" id="domain" name="domain" required placeholder="örn: example.com">
+            <button id="scanButton" type="submit">🚀 Taramayı Başlat</button>
+        </form>
+        <p id="loadingMessage" style="display:none; margin-top: 15px;">🔍 Tarama başlatılıyor, lütfen bekleyin...</p>
+    </div>
+
+    <script>
+        function disableButton() {
+            const button = document.getElementById("scanButton");
+            const message = document.getElementById("loadingMessage");
+            button.disabled = true;
+            button.innerText = "Taranıyor...";
+            message.style.display = "block";
+        }
+    </script>
+</body>
+</html>

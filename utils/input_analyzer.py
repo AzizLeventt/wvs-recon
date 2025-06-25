@@ -1,5 +1,6 @@
 from typing import Dict, List, Any, Union
 import re
+from utils.xss_payloads import XSS_PAYLOADS
 
 """
 Input Analyzer - Geniş kapsamlı ve detaylı
@@ -11,12 +12,12 @@ Input Analyzer - Geniş kapsamlı ve detaylı
 
 _TYPE_PAYLOADS: Dict[str, List[str]] = {
     "text": [
-        "<script>alert(1)</script>",  # XSS
-        "' OR '1'='1",               # SQLi klasik
-        "admin",                    # Yetkisiz girişi test
-        "normalinput",              # Normal test
-        "'; DROP TABLE users; --",  # SQLi zararlısı
-        "<svg/onload=alert(1)>",    # Alternatif XSS
+        "<script>alert(1)</script>",
+        "' OR '1'='1",
+        "admin",
+        "normalinput",
+        "'; DROP TABLE users; --",
+        "<svg/onload=alert(1)>",
     ],
     "search": [
         "test",
@@ -28,7 +29,7 @@ _TYPE_PAYLOADS: Dict[str, List[str]] = {
         "injection@test.com",
         "\"onmouseover=alert(1)\"@x.com",
         "normal@example.com",
-        "a'*%3Cscript%3Ealert(1)%3C/script%3E@b.com",  # XSS encoded
+        "a'*%3Cscript%3Ealert(1)%3C/script%3E@b.com",
     ],
     "password": [
         "Password123!",
@@ -37,103 +38,34 @@ _TYPE_PAYLOADS: Dict[str, List[str]] = {
         "12345678",
     ],
     "number": [
-        "0",
-        "-1",
-        "9999999999",
-        "1 OR 1=1",
-        "2147483647",  # 32-bit max int
-        "-2147483648", # 32-bit min int
-        "3.14159",
-        "1e10",
-        "NaN",
-        "Infinity",
+        "0", "-1", "9999999999", "1 OR 1=1", "2147483647", "-2147483648",
+        "3.14159", "1e10", "NaN", "Infinity"
     ],
     "range": [
-        "0",
-        "100",
-        "-999",
-        "2147483647",
-        "-2147483648",
+        "0", "100", "-999", "2147483647", "-2147483648",
     ],
     "tel": [
-        "+905000000000",
-        "+1234567890",
-        "<svg/onload=alert(1)>",
-        "123abc456",
+        "+905000000000", "+1234567890", "<svg/onload=alert(1)>", "123abc456",
     ],
     "url": [
-        "http://evil.com",
-        "javascript:alert(1)",
-        "https://normal.com",
-        "//evil.com",
+        "http://evil.com", "javascript:alert(1)", "https://normal.com", "//evil.com",
     ],
-    "checkbox": [
-        "on",
-        "off",
-        "true",
-        "false",
-        "",
-        "1",
-        "0",
-    ],
-    "radio": [
-        "1",
-        "0",
-        "true",
-        "false",
-    ],
-    "hidden": [
-        "admin",
-        "' OR 1=1--",
-        "hiddenValue",
-    ],
-    "file": [
-        "shell.php",
-        "evil.jpg.php",
-        "test.txt",
-        "normal.pdf",
-    ],
-    "date": [
-        "2025-01-01",
-        "9999-12-31",
-        "' OR 1=1--",
-        "0000-00-00",
-    ],
+    "checkbox": ["on", "off", "true", "false", "", "1", "0"],
+    "radio": ["1", "0", "true", "false"],
+    "hidden": ["admin", "' OR 1=1--", "hiddenValue"],
+    "file": ["shell.php", "evil.jpg.php", "test.txt", "normal.pdf"],
+    "date": ["2025-01-01", "9999-12-31", "' OR 1=1--", "0000-00-00"],
     "datetime-local": [
-        "2025-06-24T12:34",
-        "2025-12-31T23:59",
-        "1970-01-01T00:00",
+        "2025-06-24T12:34", "2025-12-31T23:59", "1970-01-01T00:00",
     ],
-    "color": [
-        "#000000",
-        "#ffffff",
-        "#ff00ff",
-    ],
-    "month": [
-        "2025-01",
-        "2025-12",
-    ],
-    "week": [
-        "2025-W01",
-        "2025-W52",
-    ],
-    "time": [
-        "12:00",
-        "23:59",
-        "00:00",
-    ],
-    "submit": [
-        "Submit",
-    ],
-    "reset": [
-        "Reset",
-    ],
-    "button": [
-        "Click",
-    ],
-    "image": [
-        "/path/to/image.jpg",
-    ],
+    "color": ["#000000", "#ffffff", "#ff00ff"],
+    "month": ["2025-01", "2025-12"],
+    "week": ["2025-W01", "2025-W52"],
+    "time": ["12:00", "23:59", "00:00"],
+    "submit": ["Submit"],
+    "reset": ["Reset"],
+    "button": ["Click"],
+    "image": ["/path/to/image.jpg"],
 }
 
 _FALLBACKS = {
@@ -171,26 +103,55 @@ def _apply_pattern_constraint(payloads: List[str], pattern: str) -> List[str]:
         filtered = [p for p in payloads if regex.fullmatch(p)]
         return filtered if filtered else payloads
     except re.error:
-        # Regex geçersizse filtreleme yapma
         return payloads
 
 def _generate_min_max_variants(attrs: Dict[str, Any]) -> List[str]:
     variants = []
-    if "min" in attrs:
-        try:
+    try:
+        if "min" in attrs:
             min_val = float(attrs["min"])
-            variants.append(str(min_val - 1))  # min'den küçük test
-            variants.append(str(min_val))      # min değeri test
-        except ValueError:
-            pass
-    if "max" in attrs:
-        try:
+            variants.append(str(min_val - 1))
+            variants.append(str(min_val))
+        if "max" in attrs:
             max_val = float(attrs["max"])
-            variants.append(str(max_val))      # max değeri test
-            variants.append(str(max_val + 1))  # max'dan büyük test
-        except ValueError:
-            pass
+            variants.append(str(max_val))
+            variants.append(str(max_val + 1))
+    except ValueError:
+        pass
     return variants
+
+def _apply_required_field(payloads: List[str], attrs: Dict[str, Any]) -> List[str]:
+    if "required" in attrs:
+        return [""] + payloads
+    return payloads
+
+def _enforce_numeric_format(payloads: List[str], attrs: Dict[str, Any]) -> List[str]:
+    if attrs.get("step") == "1":
+        return [p for p in payloads if re.fullmatch(r"-?\d+", p)] or payloads
+    return payloads
+
+def is_reflected_xss(response_text: str, payload: str) -> bool:
+    """
+    Yanıtta XSS payload'ı yansıyor mu ve hangi bağlamda?
+    Context-aware bir analiz yapar.
+    """
+    if payload not in response_text:
+        return False
+
+    context_patterns = [
+        r"<script[^>]*?>[^<]*?" + re.escape(payload) + r"[^<]*?</script>",
+        r"<[^>]+?on\w+\s*=\s*['\"]?" + re.escape(payload),
+        r"<iframe[^>]+?src\s*=\s*['\"]?" + re.escape(payload),
+        r"<style[^>]*?>[^<]*?" + re.escape(payload),
+        r"<[^>]+?href\s*=\s*['\"]?" + re.escape(payload),
+        r"<[^>]+?>[^<]*?" + re.escape(payload) + r"[^<]*?</[^>]+?>"
+    ]
+
+    for pattern in context_patterns:
+        if re.search(pattern, response_text, re.IGNORECASE):
+            return True
+
+    return False
 
 def analyze_input(
     input_type: str,
@@ -204,21 +165,17 @@ def analyze_input(
     if not payloads:
         payloads = _FALLBACKS[_category(t)]
 
-    # required varsa boş payload da ekle
-    if "required" in attrs:
-        payloads = [""] + payloads
-
+    payloads = _apply_required_field(payloads, attrs)
     payloads = _apply_length_constraints(payloads, attrs)
 
     if "pattern" in attrs:
         payloads = _apply_pattern_constraint(payloads, attrs["pattern"])
 
-    # min/max varyantları ekle (number, range, tel için)
     if t in ("number", "range", "tel"):
         variants = _generate_min_max_variants(attrs)
         payloads = list(set(payloads + variants))
+        payloads = _enforce_numeric_format(payloads, attrs)
 
-    # checkbox ve radio türlerine mantıksal test ekle
     if t in ("checkbox", "radio"):
         logicals = ["on", "off", "true", "false", "1", "0"]
         payloads = list(set(payloads + logicals))
@@ -238,8 +195,9 @@ if __name__ == "__main__":
         "minlength": "3",
         "pattern": "[a-zA-Z]+",
         "min": "1",
-        "max": "100"
+        "max": "100",
+        "step": "1"
     }
     print(analyze_input("text", "username", demo_attrs))
-    print(analyze_input("number", "age", {"min": "18", "max": "99", "required": ""}))
+    print(analyze_input("number", "age", demo_attrs))
     print(analyze_input("checkbox", "subscribe", {"required": ""}))

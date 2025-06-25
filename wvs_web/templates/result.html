@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarama Sonucu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>✔️ Tarama Başarıyla Tamamlandı</h1>
+        <a class="link-button" href="{{ url_for('report_file', filename=filename) }}" target="_blank">📄 Raporu Görüntüle</a>
+        <a class="link-button" href="{{ url_for('index') }}">🔁 Yeni Tarama Yap</a>
+    </div>
+</body>
+</html>

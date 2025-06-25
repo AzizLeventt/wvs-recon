@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>WVS-Recon Güvenlik Raporu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>WVS-Recon Güvenlik Raporu</h1>
+
+        <div class="section">
+            <h2>🎯 Hedef</h2>
+            <p>{{ report.target }}</p>
+        </div>
+
+        {% if report.subdomains %}
+        <div class="section">
+            <h2>🌐 Subdomain'ler</h2>
+            <ul>
+                {% for sub in report.subdomains %}
+                <li>{{ sub }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% if report.open_ports %}
+        <div class="section">
+            <h2>🔓 Açık Portlar</h2>
+            <ul>
+                {% for port in report.open_ports %}
+                <li>{{ port }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% if report.forms %}
+        <div class="section">
+            <h2>📝 Formlar</h2>
+            {% for form in report.forms %}
+                <p><strong>Yöntem:</strong> {{ form.method }}</p>
+                <p><strong>Action:</strong> {{ form.action }}</p>
+                <p><strong>Inputlar:</strong> {{ form.inputs | join(', ') }}</p>
+                <hr>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if report.idor_results %}
+        <div class="section">
+            <h2>🛂 IDOR Zafiyetleri</h2>
+            <ul>
+                {% for idor in report.idor_results %}
+                <li style="margin-bottom:10px; padding:10px; background:#fff; border-left: 4px solid red;">
+                    <strong>URL:</strong> {{ idor.url }}<br>
+                    <strong>Parametre:</strong> {{ idor.param }}<br>
+                    <strong>Açıklama:</strong> {{ idor.description }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+
+
+
+        {% if report.admin_panels %}
+        <div class="section">
+            <h2>🔐 Admin Panel Yolları</h2>
+            <ul>
+                {% for panel in report.admin_panels %}
+                <li style="margin-bottom:10px; padding:10px; background:#fff; border-left: 4px solid #800080;">
+                    <strong>URL:</strong> {{ panel[0] }}<br>
+                    <strong>Durum Kodu:</strong> {{ panel[1] }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+
+
+
+
+
+        <a class="link-button" href="/">🔙 Ana Sayfa</a>
+    </div>
+</body>
+</html>

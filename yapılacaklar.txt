@@ -1,0 +1,14 @@
+Web arayüz (Flask / FastAPI) +
+
+Payload başarı istatistikleri
+
+
+
+Zafiyet skorlaması (low/medium/high)
+
+
+IDOR testi henüz eklenmemiş +
+
+Admin panel dizin taraması yapılmıyor ❌
+
+Tüm sonuçları tek JSON'a yazan write_json_report() hazır ama tam entegre değil ❌
