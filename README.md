@@ -1,91 +1,70 @@
-# 🛡️ WVS-Recon
+# WVS-Recon 🔎
 
-WVS-Recon, web uygulamalarına yönelik bilgi toplama ve zafiyet tarama aracı olarak geliştirilmiştir. Komut satırından kullanılabilir, modüler yapısı sayesinde esnek ve genişletilebilir bir tarama altyapısı sunar.
+Web Vulnerability Scanner – Recon Tool  
+Modüler, hızlı ve detaylı web güvenlik tarayıcısı.
 
----
+## 🔧 Özellikler
 
-## ⚙️ Özellikler
+✅ Subdomain taraması (`crt.sh`)  
+✅ Port taraması (socket)  
+✅ Dizin taraması (`wordlist` destekli)  
+✅ Admin panel dizin taraması (özel paths)  
+✅ Zafiyetli endpoint kontrolü (`/phpinfo`, `/test`, vb.)  
+✅ XSS testi (input analizli + payload istatistiği)  
+✅ SQLi testi (form odaklı)  
+✅ CSRF & Open Redirect testleri  
+✅ IDOR zafiyeti analizi (parametre oynama)  
+✅ HTML + JSON çıktı desteği  
+✅ Flask web arayüzü  
+✅ Otomatik rapor oluşturma (renkli ve okunabilir)
 
-- 🌐 **Subdomain Taraması** (crt.sh üzerinden)
-- 🔌 **Port Taraması** (çoklu port desteği)
-- 📁 **Dizin Taraması** (200, 301, 403 gibi HTTP kodlarına göre filtreleme)
-- ⚠️ **Zafiyetli Endpoint Tespiti** (common admin paths, backup dosyalar vs.)
-- 🧪 **XSS Taraması** (input formları üzerinden basit payload testleri)
-- 📄 **JSON & HTML Raporlama**
-- ⚡ **Hızlı & normal tarama modu**
-- 🧾 **Çoklu hedef desteği**
+## 🚀 Kurulum
 
----
-
-## 🧪 Kullanım
-
-### ✅ Tek hedef:
 ```bash
-python main.py --target example.com --subdomain --ports --dirs --vuln --xss
+git clone https://github.com/kendi-repo/WVS-Recon.git
+cd WVS-Recon
+pip install -r requirements.txt
 ```
 
-### ⚡ Hızlı mod:
+## ⚙️ Kullanım
+
+### Terminal Üzerinden
+
 ```bash
-python main.py --target example.com --dirs --fast
+python main.py --target example.com --dirs --xss --form --formtest
 ```
 
-### 📁 Hedef listesi:
+### Web Arayüzü
+
 ```bash
-python main.py --list targets.txt --ports --dirs
+cd wvs_web
+python app.py
 ```
 
-### 💾 Özel çıktı dosyası:
+Tarama bittiğinde otomatik olarak HTML rapor oluşturulur ve tarayıcıda görüntülenir.
+
+## 📂 Raporlama
+
+Tüm çıktılar `output/` dizinine `.json` ve `.html` olarak kaydedilir.  
+HTML raporlar aşağıdaki bölümleri içerir:
+
+- 🎯 Hedef
+- 🌐 Subdomain listesi
+- 🔓 Açık portlar
+- 📂 Dizin listesi
+- 🔐 Admin panel yolları
+- 🛂 IDOR açıkları
+- 🧪 XSS, SQLi, CSRF, Redirect zafiyetleri
+- 📝 Form yapıları ve test sonuçları
+
+## 📌 Örnek Komutlar
+
 ```bash
-python main.py --target example.com --xss --output testxss.json
+python main.py --target testphp.vulnweb.com --dirs --xss --form --formtest --fast
 ```
 
----
-
-## 📂 Klasör Yapısı
-
-```
-wvs_recon/
-├── config/
-│   └── settings.py
-├── modules/
-│   ├── __init__.py
-│   ├── dir_enum.py
-│   ├── port_scan.py
-│   ├── subdomain_enum.py
-│   ├── tech_detect.py
-│   ├── vuln_checker.py
-│   └── xss_scanner.py
-├── output/
-│   ├── logs/
-│   │   └── scan.log
-│   ├── example_com_report.json
-│   ├── report.html
-│   ├── report.json
-│   ├── sebscafe_com_report.json
-│   ├── sebscan.json
-│   ├── testphp_vulnweb_com_report.json
-│   └── testxss.json
-├── utils/
-│   ├── __init__.py
-│   ├── colors.py
-│   ├── file_writer.py
-│   ├── html_report.py
-│   ├── http_client.py
-│   └── logger.py
-├── wordlists/
-│   ├── common.txt
-│   └── quick.txt
-├── targets.txt
-├── main.py
-├── .gitignore
-├── README.md
-└── requirements.txt
+```bash
+python main.py --list targets.txt --subdomain --ports --vuln
 ```
 
----
 
-## ❗ Notlar
-
-- 🧪 XSS modülü, sadece basit GET parametreli sayfaları test eder.
-- 📁 `output/` klasörü altında tüm JSON ve HTML çıktılar yer alır.
-- 🌐 HTML raporlar, otomatik olarak tarayıcıda açılır.
