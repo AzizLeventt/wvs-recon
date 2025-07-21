@@ -1,0 +1,23 @@
+{
+  "XSS": {
+    "<script>alert(1)</script>": 5,
+    "' OR '1'='1": 5,
+    "admin": 5,
+    "normalinput": 5,
+    "'; DROP TABLE users; --": 4,
+    "<svg/onload=alert(1)>": 4
+  },
+  "SQLi": {
+    "' OR '1'='1' --": 29,
+    "'; DROP TABLE users; --": 29,
+    "admin' --": 28,
+    "' OR 1=1#": 28,
+    "' OR 1=1/*": 28,
+    "1' AND 1=1--": 28,
+    "1' AND 1=2--": 28,
+    "' OR 1=1--": 2,
+    "\" OR \"1\"=\"1": 2,
+    "' OR sleep(5)--": 1,
+    "' OR '1'='1": 1
+  }
+}

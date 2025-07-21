@@ -38,3 +38,4 @@ def is_sqli_response(response_text: str) -> bool:
     ]
     lowered = response_text.lower()
     return any(signature in lowered for signature in error_signatures)
+#

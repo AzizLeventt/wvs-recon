@@ -8,12 +8,15 @@ from colorama import Fore, Style
 
 from modules.subdomain_enum import get_subdomains_crtsh
 from modules.port_scan import run_port_scan
-from modules.dir_enum import dir_enum
+
 from modules.vuln_checker import check_vuln_endpoints
 from modules.xss_scanner import scan_xss
 from modules.form_scanner import scan_forms
 from modules.form_tester import test_forms
-from modules.idor_checker import test_idor  # ⬅️ yeni eklendi
+from modules.idor_checker import test_idor
+
+
+
 from modules.dir_enum import dir_enum, scan_admin_panels
 
 
@@ -200,7 +203,7 @@ def scan_target(domain: str, args: argparse.Namespace):
         ####################################################
         if args.formtest:
             info("IDOR testi başlatılıyor…")
-            idor_results = test_idor(target_url, form_data)
+            idor_results = test_idor(target_url)  # Sadece target_url parametresi veriyoruz
             if idor_results:
                 success(f"{len(idor_results)} potansiyel IDOR zafiyeti tespit edildi.")
             else:
@@ -212,7 +215,8 @@ def scan_target(domain: str, args: argparse.Namespace):
         out_name = (
             args.output if args.output else f"{domain.replace('.', '_')}_report.json"
         )
-        out_path = Path("output") / out_name
+        out_path = Path("wvs_web/output") / out_name
+        html_out_path = str(out_path).replace(".json", ".html")
 
         success_flag = write_json_report(
             domain=domain,
@@ -231,14 +235,13 @@ def scan_target(domain: str, args: argparse.Namespace):
         if success_flag:
             success(f"Tüm sonuçlar '{out_path}' dosyasına kaydedildi.")
             try:
-                generate_html_report(str(out_path))
+                html_out_path = str(out_path).replace(".json", ".html")
+                generate_html_report(json_file=str(out_path), html_file=html_out_path)
             except Exception as exc:
                 error(f"HTML raporu oluşturulamadı: {exc}")
-        else:
-            error("Sonuçlar kaydedilemedi.")
 
-    except Exception as exc:
-        error(f"Beklenmeyen hata: {exc}")
+    except Exception as e:
+        error(f"Hedef taraması sırasında hata oluştu: {e}")
 
     dur = datetime.now() - start_ts
     info(f"{domain} taraması tamamlandı (süre: {dur})")

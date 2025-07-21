@@ -186,7 +186,7 @@ def analyze_input(
         "attrs": attrs,
         "payloads": payloads,
     }
-
+#
 # Demo test
 if __name__ == "__main__":
     demo_attrs = {

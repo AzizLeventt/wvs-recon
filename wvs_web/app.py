@@ -1,11 +1,12 @@
 import sys
 import os
 import json
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
-from flask import Flask, render_template, request, redirect, url_for
-from main import scan_target
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 import argparse
+
+# Üst klasördeki 'main.py' için yol ekleniyor
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from main import scan_target
 
 app = Flask(__name__)
 
@@ -26,24 +27,34 @@ def index():
                 formtest=True,
                 fast=True,
                 wordlist=None,
-                output=None,
+                output=f"{domain.replace('.', '_')}_report.json",  # JSON çıktısı bu isimde olacak
                 verbose=False
             )
             scan_target(domain, args)
-            report_name = f"{domain.replace('.', '_')}_report.html"
-            return render_template("result.html", filename=report_name)
+            report_html = f"{domain.replace('.', '_')}_report.html"  # HTML rapor ismi
+            # Tarama tamamlandıktan sonra result sayfasına yönlendiriyoruz
+            return render_template("result.html", filename=report_html)
     return render_template("index.html")
+
 
 @app.route("/report/file/<filename>")
 def report_file(filename):
-    json_path = os.path.join("output", filename.replace(".html", ".json"))
-    if not os.path.exists(json_path):
+    report_dir = os.path.join("wvs_web", "output")
+    html_path = os.path.join(report_dir, filename)
+    if not os.path.exists(html_path):
         return "Rapor verisi bulunamadı.", 404
+    return send_from_directory(report_dir, filename)
 
-    with open(json_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
 
-    return render_template("report.html", report=data)
+@app.route("/report/list")
+def list_reports():
+    try:
+        report_dir = os.path.join("wvs_web", "output")
+        files = [f for f in os.listdir(report_dir) if f.endswith(".html")]
+        return render_template("list.html", files=files)
+    except Exception as e:
+        return f"Hata: {e}", 500
+
 
 if __name__ == "__main__":
     app.run(debug=True)

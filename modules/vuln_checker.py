@@ -30,3 +30,4 @@ def check_vuln_endpoints(domain, timeout=5):
             continue
 
     return found
+#

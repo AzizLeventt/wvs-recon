@@ -22,7 +22,7 @@ def scan_forms(url):
     except Exception as e:
         pass
     return forms
-
+#
 def analyze_inputs_and_generate_payloads(forms):
     payloads = {
         "text": ["<script>alert(1)</script>", "' OR '1'='1", "<img src=x onerror=alert(1)>"],

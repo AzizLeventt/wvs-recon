@@ -31,3 +31,4 @@ def get_subdomains_crtsh(domain):
     except Exception as e:
         print(f"[!] İstek sırasında hata oluştu: {e}")
         return []
+#

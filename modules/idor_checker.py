@@ -17,7 +17,7 @@ def test_idor(base_url: str) -> list:
         "/orders/1", "/api/user/1", "/api/profile/1",
         "/account?id=1", "/download?file=secret.pdf"
     ]
-
+    #
     found = []
 
     info("IDOR şüpheli URL'ler test ediliyor...")

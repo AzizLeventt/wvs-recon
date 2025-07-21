@@ -7,7 +7,7 @@ def analyze_forms(url):
         response = requests.get(url, timeout=10)
         soup = BeautifulSoup(response.text, "html.parser")
         forms = soup.find_all("form")
-
+        #
         results = []
         for form in forms:
             action = form.get("action")

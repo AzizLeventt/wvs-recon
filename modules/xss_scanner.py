@@ -36,7 +36,7 @@ def scan_xss(url):
                         data[input_field["name"]] = payload
                     else:
                         data[input_field["name"]] = "test"
-
+            #
             form_url = urljoin(url, form_details["action"])
             if form_details["method"] == "post":
                 response = requests.post(form_url, data=data, timeout=10)

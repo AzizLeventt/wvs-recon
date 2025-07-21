@@ -9,7 +9,7 @@ def dir_enum(domain, wordlist, timeout=3):
     headers = {
         "User-Agent": "Mozilla/5.0"
     }
-
+#
     for word in wordlist:
         url = f"{domain.rstrip('/')}/{word.strip()}"
         try:

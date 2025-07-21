@@ -28,4 +28,4 @@ XSS_PAYLOADS = [
     "<iframe src='javascript:alert(1)'>",
     "<math href='javascript:alert(1)'>",
     "<a href='javas&#99;ript:alert(1)'>click</a>"
-]
+]#

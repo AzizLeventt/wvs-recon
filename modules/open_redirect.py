@@ -46,3 +46,4 @@ def test_open_redirect(action: str, method: str, data: dict, input_name: str, ti
         except Exception as exc:
             error(f"    Redirect testi başarısız: {exc}")
     return None
+#

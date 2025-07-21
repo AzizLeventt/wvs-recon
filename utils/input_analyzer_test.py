@@ -32,7 +32,7 @@ _FALLBACKS = {
     "string": ["test", "<svg/onload=alert(1)>"],
     "date": ["2025-01-01"]
 }
-
+#
 def _category(t: str) -> str:
     if t in ("number", "range"):
         return "numeric"

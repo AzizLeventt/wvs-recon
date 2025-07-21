@@ -23,7 +23,7 @@ def success(msg):
 def warning(msg):
     print(f"{Fore.YELLOW}[!]{Style.RESET_ALL} {msg}")
     write_to_log(f"[!] {msg}")
-
+#
 def error(msg):
     print(f"{Fore.RED}[x]{Style.RESET_ALL} {msg}")
     write_to_log(f"[x] {msg}")

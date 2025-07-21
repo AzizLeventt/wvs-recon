@@ -29,3 +29,4 @@ def run_port_scan(ip, ports=None, max_threads=100):
             open_ports.append(port)
 
     return open_ports
+#

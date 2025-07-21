@@ -123,7 +123,7 @@ def generate_html_report(json_file: str) -> str:
                 html.append("<b style='color:green;'>Güvenli</b><br>")
             html.append("</li>")
         html.append("</ul>")
-
+    #
     # IDOR sonuçları
     if data.get("idor_results"):
         html.extend(["<h2>IDOR Zafiyetleri</h2>", "<ul>"])

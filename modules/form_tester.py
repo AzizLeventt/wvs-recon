@@ -156,7 +156,7 @@ def test_form(form: Dict[str, Any], base_url: str, timeout: int = 10) -> List[Di
                 "vulnerable": vulnerable,
                 "reflected": reflected
             })
-
+        #
         except Exception as exc:
             error(f"    İstek başarısız: {exc}")
             results.append({
