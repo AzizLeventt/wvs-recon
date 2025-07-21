@@ -15,10 +15,7 @@ from modules.form_scanner import scan_forms
 from modules.form_tester import test_forms
 from modules.idor_checker import test_idor
 
-
-
 from modules.dir_enum import dir_enum, scan_admin_panels
-
 
 from utils.input_analyzer import analyze_input  # param ayrımı & payload seçimi
 from utils.logger import info, success, error
@@ -216,7 +213,6 @@ def scan_target(domain: str, args: argparse.Namespace):
             args.output if args.output else f"{domain.replace('.', '_')}_report.json"
         )
         out_path = Path("wvs_web/output") / out_name
-        html_out_path = str(out_path).replace(".json", ".html")
 
         success_flag = write_json_report(
             domain=domain,
@@ -235,8 +231,7 @@ def scan_target(domain: str, args: argparse.Namespace):
         if success_flag:
             success(f"Tüm sonuçlar '{out_path}' dosyasına kaydedildi.")
             try:
-                html_out_path = str(out_path).replace(".json", ".html")
-                generate_html_report(json_file=str(out_path), html_file=html_out_path)
+                generate_html_report(str(out_path))
             except Exception as exc:
                 error(f"HTML raporu oluşturulamadı: {exc}")
 

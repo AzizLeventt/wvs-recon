@@ -615,3 +615,60 @@
 [2025-06-25 17:24:10] [+] Tüm sonuçlar 'output\testphp_vulnweb_com_report.json' dosyasına kaydedildi.
 [2025-06-25 17:24:10] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\output\testphp_vulnweb_com_report.html
 [2025-06-25 17:24:10] [i] testphp.vulnweb.com taraması tamamlandı (süre: 0:00:09.927703)
+[2025-07-22 00:49:01] [i] Hedef alındı: example.com
+[2025-07-22 00:49:01] [+] Tüm sonuçlar 'wvs_web\output\example_com_report.json' dosyasına kaydedildi.
+[2025-07-22 00:49:01] [x] HTML raporu oluşturulamadı: generate_html_report() got an unexpected keyword argument 'html_file'
+[2025-07-22 00:49:01] [i] example.com taraması tamamlandı (süre: 0:00:00.003105)
+[2025-07-22 00:49:28] [i] Hedef alındı: sebscafe.com
+[2025-07-22 00:49:28] [+] Tüm sonuçlar 'wvs_web\output\sebscafe_com_report.json' dosyasına kaydedildi.
+[2025-07-22 00:49:28] [x] HTML raporu oluşturulamadı: generate_html_report() got an unexpected keyword argument 'html_file'
+[2025-07-22 00:49:28] [i] sebscafe.com taraması tamamlandı (süre: 0:00:00.005218)
+[2025-07-22 00:49:44] [i] Hedef alındı: sebscafe.com
+[2025-07-22 00:49:44] [i] sebscafe.com IP → 34.120.137.41
+[2025-07-22 00:49:44] [i] XSS taraması…
+[2025-07-22 00:49:47] [i] XSS açığı bulunamadı.
+[2025-07-22 00:49:47] [+] Tüm sonuçlar 'wvs_web\output\sebscafe_com_report.json' dosyasına kaydedildi.
+[2025-07-22 00:49:47] [x] HTML raporu oluşturulamadı: generate_html_report() got an unexpected keyword argument 'html_file'
+[2025-07-22 00:49:47] [i] sebscafe.com taraması tamamlandı (süre: 0:00:02.436696)
+[2025-07-22 00:50:07] [i] Hedef alındı: sebscafe.com
+[2025-07-22 00:50:07] [i] sebscafe.com IP → 34.120.137.41
+[2025-07-22 00:50:07] [i] XSS taraması…
+[2025-07-22 00:50:08] [i] XSS açığı bulunamadı.
+[2025-07-22 00:50:08] [+] Tüm sonuçlar 'wvs_web\output\sebscafe_com_report.json' dosyasına kaydedildi.
+[2025-07-22 00:50:08] [x] HTML raporu oluşturulamadı: generate_html_report() got an unexpected keyword argument 'html_file'
+[2025-07-22 00:50:08] [i] sebscafe.com taraması tamamlandı (süre: 0:00:01.409754)
+[2025-07-22 00:52:25] [i] Hedef alındı: sebscafe.com
+[2025-07-22 00:52:25] [i] sebscafe.com IP → 34.120.137.41
+[2025-07-22 00:52:25] [i] XSS taraması…
+[2025-07-22 00:52:27] [i] XSS açığı bulunamadı.
+[2025-07-22 00:52:27] [+] Tüm sonuçlar 'wvs_web\output\sebscafe_com_report.json' dosyasına kaydedildi.
+[2025-07-22 00:52:27] [x] HTML raporu oluşturulamadı: generate_html_report() got an unexpected keyword argument 'html_file'
+[2025-07-22 00:52:27] [i] sebscafe.com taraması tamamlandı (süre: 0:00:01.736718)
+[2025-07-22 00:52:54] [i] Hedef alındı: deneme.com
+[2025-07-22 00:52:55] [i] deneme.com IP → 31.210.51.96
+[2025-07-22 00:52:55] [i] XSS taraması…
+[2025-07-22 00:52:55] [i] XSS açığı bulunamadı.
+[2025-07-22 00:52:55] [+] Tüm sonuçlar 'wvs_web\output\deneme_com_report.json' dosyasına kaydedildi.
+[2025-07-22 00:52:55] [x] HTML raporu oluşturulamadı: generate_html_report() got an unexpected keyword argument 'html_file'
+[2025-07-22 00:52:55] [i] deneme.com taraması tamamlandı (süre: 0:00:00.266452)
+[2025-07-22 00:53:34] [i] Hedef alındı: deneme.com
+[2025-07-22 00:53:34] [i] deneme.com IP → 31.210.51.96
+[2025-07-22 00:53:34] [i] XSS taraması…
+[2025-07-22 00:53:34] [i] XSS açığı bulunamadı.
+[2025-07-22 00:53:34] [+] Tüm sonuçlar 'wvs_web\output\deneme_com_report.json' dosyasına kaydedildi.
+[2025-07-22 00:53:34] [x] HTML raporu oluşturulamadı: generate_html_report() got an unexpected keyword argument 'json_path'
+[2025-07-22 00:53:34] [i] deneme.com taraması tamamlandı (süre: 0:00:00.186618)
+[2025-07-22 00:53:49] [i] Hedef alındı: deneme.com
+[2025-07-22 00:53:49] [i] deneme.com IP → 31.210.51.96
+[2025-07-22 00:53:49] [i] XSS taraması…
+[2025-07-22 00:53:49] [i] XSS açığı bulunamadı.
+[2025-07-22 00:53:49] [+] Tüm sonuçlar 'wvs_web\output\deneme_com_report.json' dosyasına kaydedildi.
+[2025-07-22 00:53:49] [x] HTML raporu oluşturulamadı: generate_html_report() got an unexpected keyword argument 'json_path'
+[2025-07-22 00:53:49] [i] deneme.com taraması tamamlandı (süre: 0:00:00.161692)
+[2025-07-22 00:57:52] [i] Hedef alındı: deneme.com
+[2025-07-22 00:57:52] [i] deneme.com IP → 31.210.51.96
+[2025-07-22 00:57:52] [i] XSS taraması…
+[2025-07-22 00:57:52] [i] XSS açığı bulunamadı.
+[2025-07-22 00:57:52] [+] Tüm sonuçlar 'wvs_web\output\deneme_com_report.json' dosyasına kaydedildi.
+[2025-07-22 00:57:52] [+] HTML raporu oluşturuldu: file://C:\Users\azizl\Desktop\wvs_recon\wvs_web\output\deneme_com_report.html
+[2025-07-22 00:57:52] [i] deneme.com taraması tamamlandı (süre: 0:00:00.251945)
